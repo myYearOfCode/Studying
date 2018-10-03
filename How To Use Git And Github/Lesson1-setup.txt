@@ -1,0 +1,50 @@
+How to use git and github
+####Lesson 1 - Setup####
+'git log' will show all of the changes made to a repo newest at the top
+'git config --global color.ui auto' will globally enable multicolored diff output. it is worth it.
+'git diff first_ID second_ID' will show you the differences between two 
+you can use the first 4 char of the id for simplicity's sake
+up down scrolls.
+'q' will escape the diff view
+output will have -- on lines removed from first file
+output will have ++ on lines added to second file
+
+when to commit?
+ideally do one commit per logical change
+text reformatting and other non-bug causing changes can get larger as they can't cause as many headaches when folding back into main.
+
+reflect:
+manual vs automatic commits
+manual means that you can pick good logical stopping points to commit, and you don' run the risk of the point being unexecutable. The downside is that you need to remember to actually do it.
+automatic means that you don't have to worry about having a record of your work, but that the individual commits may mean less because they won't have the feature based granularity.
+
+git tracks all files in the repo, so that you can always roll back / clone the right version of all of the files and have a working version.
+
+reflection:
+why do some vcs operate on single files where others operate on the repo level?
+I think that is because google drive is intended to work with single files, like word docs and text files. 
+Git operates on the repo level because it is designed for coding files that are all interrelated.
+both use-cases are fine, and each would be cumbersome for the other style of file tracking.
+
+'git clone http://url' will clone the repo to your local directory
+
+reflection:
+how can you use the commands git log and git diff to view the history of files?
+git log is used to show commit messages and times/ dates, then git diff is used to compare two versions of the file.
+ideally you can find the change you want with log and then see the changed code with diff.
+
+'git checkout id_of_commit' is how you revert to a previous version of the code.
+
+reflection:
+how might using version control make you more confident to make changes that could break something?
+they would give you the confidence that you could always roll back to a working version, so trying 
+out new features or drastic refactoring shouldn't be a concern.
+
+configuring your git 
+downloaded 3x files. mv them to root
+restart terminal.
+
+reflection:
+now that you have your workspace set up, what do you want to try using Git for?
+I'd like to get some of my older projects on github so that they can more easily be shared across computers. I like the concept of letting git sync them
+vs me manually having to do it with something like dropbox. also, I'm interested in forking on mymatic because there are a few versions of it already. it would be great for them to coexist and track changes automatically (ok more easily, not automatically)
