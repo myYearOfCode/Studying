@@ -8,6 +8,7 @@ up down scrolls.
 'q' will escape the diff view
 output will have -- on lines removed from first file
 output will have ++ on lines added to second file
+to change your GitHub id/pass you need to go to the OS X keychain and delete GitHub from there.
 
 when to commit?
 ideally do one commit per logical change
