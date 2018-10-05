@@ -54,3 +54,11 @@ merging two branches means that we combine the changes made in both branches int
 
 git prefers to bring a conflict to your attention, letting the users choose which version to move forward with.
 
+reflections:
+what are the pros and cons of gits automatic merging vs always doing merges manually?
+automatic is really nice when the edits are clear and there aren't conflicts.
+manual is good when there are multiple interdependent changes going on.
+they both have their place.
+
+when there is a merge conflict, git sticks some code into the file that has the conflicts. Must that file be in the currently checked out repo / branch?
+
