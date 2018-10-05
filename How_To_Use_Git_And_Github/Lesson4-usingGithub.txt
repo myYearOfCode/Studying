@@ -1,0 +1,7 @@
+it's common to only push one branch to github
+you need to create the repo on github, but after that you can do most everything on the command line.
+
+'git remote' with no args will show your remote repo names
+'git remote -v' will show your remote repo names and urls (verbose)
+'git remote add origin git@github.com:tinyenormous/reponame.git' -> add one repo as remote (called 'origin' by convention)
+'git push origin master' will push your local master branch to the origin remote repo.
