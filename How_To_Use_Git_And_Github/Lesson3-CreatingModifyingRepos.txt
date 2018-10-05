@@ -70,3 +70,98 @@ git remote -v => to check where this repo will push to remotely (github usually)
 git push -> if the above looks good, push it to github
 DONE!
 
+
+ls -a in terminal will show hidden files.
+
+'git init' will make a new hidden .git file and enable the directory to act as a repo
+"fatal: bad default revision 'HEAD'"" will be the error message you get when you don't have any commits and you use 'git log'
+
+what happens when you initialize a repository? Why do you need to do it?
+you create a .init file that is hidden and that enables all of the git commands.
+
+git status will show the staging area
+in order to add them to the staging area, use 'git add'
+
+
+reflections:
+how is the staging area different from the working directory and the repository? what value do you thing it offers?
+
+it shows you what files you have changed since your last commit. it is a good indicator of how much work has been done since the last commit
+it allows you to work on two pieces of the app at one time and only commit one at a time.
+the staging area is a good way to selectively version some files but not others.
+
+committing
+git commit will (in my config) open up a commit message in sublime
+git commit -m "some text here" will make the commit with that text.
+
+commit style guide
+http://udacity.github.io/git-styleguide/
+
+	Message Structure
+	A commit messages consists of three distinct parts separated by a blank line: the title, an optional body and an optional footer. The layout looks like this:
+
+	type: subject
+
+	body
+
+	footer
+	The title consists of the type of the message and subject.
+
+	The Type
+	The type is contained within the title and can be one of these types:
+
+		feat: a new feature
+		fix: a bug fix
+		docs: changes to documentation
+		style: formatting, missing semi colons, etc; no code change
+		refactor: refactoring production code
+		test: adding tests, refactoring test; no production code change
+		chore: updating build tasks, package manager configs, etc; no production code change
+		The Subject
+		Subjects should be no greater than 50 characters, should begin with a capital letter and do not end with a period.
+
+	Use an imperative tone to describe what a commit does, rather than what it did. For example, use change; not changed or changes.
+
+	The Body
+	Not all commits are complex enough to warrant a body, therefore it is optional and only used when a commit requires a bit of explanation and context. Use the body to explain the what and why of a commit, not the how.
+
+	When writing a body, the blank line between the title and the body is required and you should limit the length of each line to no more than 72 characters.
+
+	The Footer
+	The footer is optional and is used to reference issue tracker IDs.
+
+	Example Commit Message
+	feat: Summarize changes in around 50 characters or less
+
+	More detailed explanatory text, if necessary. Wrap it to about 72
+	characters or so. In some contexts, the first line is treated as the
+	subject of the commit and the rest of the text as the body. The
+	blank line separating the summary from the body is critical (unless
+	you omit the body entirely); various tools like `log`, `shortlog`
+	and `rebase` can get confused if you run the two together.
+
+	Explain the problem that this commit is solving. Focus on why you
+	are making this change as opposed to how (the code explains that).
+	Are there side effects or other unintuitive consequenses of this
+	change? Here's the place to explain them.
+
+	Further paragraphs come after blank lines.
+
+	 - Bullet points are okay, too
+
+	 - Typically a hyphen or asterisk is used for the bullet, preceded
+	   by a single space, with blank lines in between, but conventions
+	   vary here
+
+	If you use an issue tracker, put references to them at the bottom,
+	like this:
+
+	Resolves: #123
+	See also: #456, #789
+
+
+'git diff' with no arguments will show the difference between the working directory and the staging area,
+'git diff --stage' shows the difference between the staging area and the most recent commit
+'git commit' will commit the staging area to the most recent commit
+'git reset --hard' will reset the working dir and staging area to the repo. this is NOT undoable.
+'git checkout master' will remove the 'detached HEAD' state and sync the files to the master version.
