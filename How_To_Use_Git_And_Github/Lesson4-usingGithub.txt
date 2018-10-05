@@ -5,3 +5,15 @@ you need to create the repo on github, but after that you can do most everything
 'git remote -v' will show your remote repo names and urls (verbose)
 'git remote add origin git@github.com:tinyenormous/reponame.git' -> add one repo as remote (called 'origin' by convention)
 'git push origin master' will push your local master branch to the origin remote repo.
+
+'git pull origin master' will pull changes from the remote to your local repo.
+
+FORKING
+forking is a clone that github lets you do directly on their servers. Clone has to be done locally and then pushed back to github. forking is simpler.
+
+'git clone...' automatically adds the github as a remote origin.
+
+conflicting collaboration
+sometimes both local and remote are different than the 
+'git fetch' will allow you to grab a copy of the remote, but not pull it onto anything. you update origin/master, but not master.
+origin/master is the local copy of the origin from the last time you connected to it (/pulled/cloned?)
