@@ -1,0 +1,249 @@
+#practical javascript from watchAndCode.com
+this course is project-based and it doesn't use any frameworks. That is a good idea because you have to learn the underlying fundamentals as opposed to learning the framework.
+
+features to write
+
+-add todo items
+-toggle features
+-toggle all features
+-edit features
+-delete item
+
+local storage won't be featured, but i might be able to figure it out with a cookie
+
+"everything in programming is a lot of small tasks."
+live office hours one hour once a week - https://www.facebook.com/groups/514043678767094/
+6 pm pacific
+
+most of the class will be in chrome. at the end there will be a little text editor talk.
+
++25min
+
+setting out with one piece to focus on at a time is great bc it helps with commits, it helps you focus, and it makes it easier to split work up between teams.
+
+general convention is to start app requirements with "It should..."
+
+lists in js are called arrays
+['item 1','item 2','item 3']
+var todos = ['item 1','item 2','item 3']
+that defines the variable todos as the array
+
+making a way to display the todos:
+console.log('my todos: ',todos)
+>>> my todos: ['item 1','item 2','item 3'}
++6
+adding new todos.
+how can we add an element to an array?
+push() lets you add items to the end of an array
+todos.push('item 4')
+js responds with the len of the array
+
++2
+-it should have a way to change an existing todo-
+todos[2] is the way to grab a single element of an array
+you get undefined if you try to access outside the array boundaries.
+you CAN change array elements in-place in js, (not in python)
+todos[3]="item 4 updated"
+it seems like you can't do negative indexing in js
+
++2
+-it shoud have a way to delete a todo-
+splice() command is the way to go
+todos.splice(0,1) will return the first element and remove it from the array
+todos.splice(starting deleting position, number of items to delete)
+if you try to splice outside of an array you are returned empty brackets []
+
+we figured out the way to do everything on our feature list, even if we didnt make it very user friendly
+
++started timing on watch
+
+interlude - functions and variables.
+
+define functions with 'function'
+
+function myFunction(){
+	steps go in here;
+}
+
+what is the deal with semicolons? There is a tool to tell us where they go, but we wont cover that yet
+
+customizing function behavior at runtime
+any vars in the parens are passed in as arguments to the function
+
+function displayTodos(){
+	console.log('Todos List:' , todos);
+}
+
+function addTodo(newTodo) {
+	todos.push(newTodo);
+	displayTodos();
+}
+
+//js comments are double forward slashes
+
+
+Version 3 is all about objects!!
+objects are used to group related data and functions together
+24 % done!
+
+to define a new object:
+
+var myComputer = {
+	operatingSystem: 'mac',
+	screenSize: '13 inches',
+	purchaseYear: 2011,
+	sayName: function() { //sayname is a method on the object. this is called an anonymous function because it is not named.
+	  console.log(this)
+	}
+}
+
+The 'this' in console.log is basically the same as self.
+
+myComputer.operatingSystem
+>>> "mac"
+
+V3 of the program is going to use an object
+I started building this on plnkr
+
+'this' is needed inside of an object whenever talking about objet-owned methods or variables
+
+ability = process * time
+process = your habits and behaviors.
+process improvements will benefit you a lot more than small time increases.
+gordon has a medium post here
+https://medium.com/@gordon_zhu/how-to-be-great-at-asking-questions-e37be04d0603
+all about his process for asking questions.
+
+v4 is starting to make new objects and dealing with booleans
+the todos array will change from an array of text to an array of objects (each of whom have a text property)
+
+! = "bang!"
+!= Not (whatever follows it) usually used with booleans.
+
+
+for loops in js.
+for (initialization; condition; final expression) {
+}
+
+NOTE - these use semicolons, not commas.
+
+###############################
+	for (var i=0,; i<3; i++) {
+		console.log('hey')
+	}
+###############################
+
+somearray.length = len(somearray) in python
+
+v5 FOR LOOPS
+fixing .displayTodos
+
+
+
+if loops
+the if condition needs to be in parens
+
+	if (this.todos.length === 0) {
+	  console.log('Your todo list is empty!')
+	} else {
+	  console.log('My Todos:');
+	  for (var i=0; i < this.todos.length; i++){
+	    console.log(this.todos[i].todoText);
+	  };
+	}
+
+
+datatypes in js
+objects and primitives
+objects can be very complicated, they can have lots of methods and attributes.
+they are represented with {}
+
+primitives are simpler, they only have values
+string, number, boolean, undefined, Null
+undefined means never defined, null means intentionally set to Null
+
+
+
+<button onclick="handler.methodName()">button name</button>	
+onclick will run whatever handler / method is in the quotes.
+
+version 9/10 interlude
+running a function on every element in an array
+you can use a for loop to pass in i to the function
+for (var i=0; i<students.length; i++){
+	console.log(i);
+}
+that works, but can be made simpler
+
+students.forEach(function(name) { //this uses an anonymous function
+	console.log(name);
+})
+
+
+students.forEach(function logName(name) { //this uses a named function
+	console.log(name);
+})
+
+can you pass in a function without defining it in the call? ie can you pass in logName() if it is defined outside of the loop? YES
+
+.addEventListener('click', function() { }); //listens for different events and then runs the function
+this can work on elements other than links and grab clicks or other events. 
+this passes in an event object when it occurs. the click object (MouseEvent) has a LOT of info
+
+higher order functions: accept other functions and enhance the behavior of other functions
+callback functions are the simpler functions that are passed into higher order functions
+
+to return a value from a function it's just 
+return result; //where result is a variable that you want to return.
+if you do not return something, then it will return undefined.
+
+using this with callback functions
+things break when this happens. this inside of a callback function will break because the anonymous function will not have the same attributes as the initial object.
+the way you fix it is by passing this into the forEach
+ie
+    todoList.todos.forEach(function(todo,position) { 
+    // function code goes here
+    }, this) // this 'this' is passing in the appropriate 'this' from the master object.
+
+//forEach optionally returns a position value, if you include a second arg in the anonymous function.
+
+
+logThis(){
+	console.log(this);
+}
+__rules for understanding what 'this' is__
+case 1 when a function is called by itself or when 'this' is used outside of a function it refers to the 'window' which is the browser window.
+case 2 when a function is called as a method, 'this'  refers to whatever is on the left side of the dot
+case 3 when a function is called as a constructor 'this' refers to the object that the constructor is building
+	in this kind of constructor there is a hint when naming it. If it starts with a capital letter it is intended to be used with the new command. ie
+function Person(name) {
+	this.name = name;
+}	
+
+new Person('gordon'); //this is with capitalized constructors
+person('gordon'); //this is with uncapitalized constructors
+I don't know the difference between these two things
+at the very beginning of a constructor a new object is created. 'this' refers to that newly created object when it is run in the callback.
+the 'this' object is returned at the end of the constructor automatically.
+
+case 4: when you manually set 'this' using bind, apply, or call - what 'this' means is up to you
+// bind is a method on functions that returns a copy of the function it is called on where this is set to the first argument passed into bind.
+var explicitlySetLogThis = logThis.bind({name: 'gordon'}) // this sets explicitlySetLogThis to a copy of the logThis function with 'this' set to the {name:'gordon'} object
+
+//apply and call are very similar to each other and somewhat similar to bind
+//the difference between them is in how they accept function arguments
+//apply is a method that allows you to do something similar to bind, but it runs it immediately
+logThis.apply({name: 'gordon'}) //
+//when passing in arguments you pass them to apply() as an array in the second position
+logThis.apply({name: 'gordon'}, ['hi', 'gordon']) //
+//call is a method that 
+logThis.call({name: 'gordon'}) //
+//when you use call you don't need them to be in an array.
+logThis.apply({name: 'gordon'}, 'hi', 'gordon') //
+
+//note - you cannot 'rebind' a this value (with any method) Once you set it with .bind it is fixed as that value. the other two calls are re-bindable since you do not assign them 
+
+case 5: in a callback function apply the above rules methodically
+ basically, just look at how the higher Order function function calls the callback. It will use one of the rules to call it.
+
+ 
