@@ -62,3 +62,11 @@ they both have their place.
 
 when there is a merge conflict, git sticks some code into the file that has the conflicts. Must that file be in the currently checked out repo / branch?
 
+recap
+cd into dir of local repo
+git status -> to check what is changed since the last commit (locally)
+git commit -> if there are changes to be committed. IT will open up a window for message
+git remote -v => to check where this repo will push to remotely (github usually)
+git push -> if the above looks good, push it to github
+DONE!
+
