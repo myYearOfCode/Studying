@@ -1,0 +1,5 @@
+Reflections:
+when would you like to use a remote repo vs keeping everything local?
+Using a remote repo would be very useful when collaborating with other team members, 
+when working on multiple machines, or when you are concerned about data loss on a single 
+hard drive
