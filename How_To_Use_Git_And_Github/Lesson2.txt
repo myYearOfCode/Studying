@@ -1,0 +1,11 @@
+How to use git and github
+####Lesson 2 - Using Git on yor computer for solo projects####
+you can also diff between two different files.
+'diff -u' looks very similar to git diff. not - no 'git' on that command
+
+using git clone to create a new local repo vs simply copying it allows for you to also copy the git history
+
+cloning a repo locally
+cd into dir
+git clone https://github.com/udacity/pappu-pakia.git
+
