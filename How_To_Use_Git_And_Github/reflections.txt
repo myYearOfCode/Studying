@@ -3,3 +3,14 @@ when would you like to use a remote repo vs keeping everything local?
 Using a remote repo would be very useful when collaborating with other team members, 
 when working on multiple machines, or when you are concerned about data loss on a single 
 hard drive
+
+lesson 4-22 What is the benefit of having a copy of the last known state of the remote stored locally?
+it allows you to know the 'common ancestor' to make the auto merge go more smoothly.
+
+lesson 4-25 How would you collaborate without using git or github? What would be easier, and what would be harder?
+solo projects might be the easiest thing for non-version controlled software. fast-changing group projects would be the worst. It's probably really nice to be able to roll things back and see changes over time when debugging broken software.
+
+lesson 4-31 When would you want to make changes in a separate branch rather than directly in master? What benefits does each approach have?
+most of the time you should be working on a branch. That means less work if something doesn't pan out. you can simply delete or not merge the branch. If you were working on master and a feature did not end up working you would have to revert a lot of commits.
+the benefits of working on master are speed and simplicity. small changes may be better when done in master, but probably not if it is a mission critical piece of software.
+also, working directly in master is probably only feasible on solo projects because otherwise you would be working on a codebase that could change at any moment, and then you effectively become a branch anyways.

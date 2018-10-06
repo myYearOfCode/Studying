@@ -15,5 +15,48 @@ forking is a clone that github lets you do directly on their servers. Clone has 
 
 conflicting collaboration
 sometimes both local and remote are different than the 
-'git fetch' will allow you to grab a copy of the remote, but not pull it onto anything. you update origin/master, but not master.
+'git fetch origin' will allow you to grab a copy of the remote, but not pull it onto anything. you update origin/master, but not master (because master is local).
 origin/master is the local copy of the origin from the last time you connected to it (/pulled/cloned?)
+
+fast forward merges are confusing. if you are merging a commit path that node a can see node b behind it, you can do a fast forward merge.
+fast forward merges don't generate merge commits. that's just about the only difference I can see.
+it essentially just moves the head label to the new commit.
+
+Pull requests!
+make a new branch, change something, commit, push to remote
+the new branch will appear on github
+then you can make a pull request, sending a message to the repo owner.
+you can also select what branch and repo you want to be pulled into. This is important when dealing with a forked branch. it allows you to mistakenly send pull requests to the main repo that you forked to make your repo. that is generally not what you want to do.
+
+doing my first pull request
+git branch hot-sauce // make new branch
+git checkout hot-sauce //checkout new branch
+subl chili-recipe.txt //edit recipe
+git add chili-recipe.txt //add to staging area
+git commit -m "adding hot sauce" //commit change to branch
+git push origin hot-sauce // push the hot-sauce branch to master (making a new branch on master)
+on github, go the the branch and hit 'new pull request'
+BE SURE TO SELECT THE RIGHT BRANCH TO BE PULLED INTO
+fill out fields. donezo.
+
+merge conflicts.
+if more than one person changes the same line in 2 repos they can't merge automatically. 
+in the video they merged one branch into master, deleted the branch.
+then they 'git pull origin master' to download the origin into master
+'git checkout different-oil' to check out the branch
+'git merge origin different-oil' to get the merge conflict. this will also puke the weird lines into the file, allowing you to manually fix it.
+fix the conflict in your text editor.
+'git add cake-recipe.txt'
+'git commit -m "message goes here"''
+'git push origin different-oil'
+
+some times the main branch will be updated before your fork can be pulled into the original repo
+to fix this, you add the original fork repo as a remote named 'upstream'
+'git remote add upstream git@github.com:tinyenormous/reponame.git'
+'git pull upstream master' pull master from upstream into master
+'git checkout branchName'
+'git merge master branchName' then you merge your changes into master (finding and fixing the conflict as they come)
+'git push origin branchName' finally, push to your github repo and then do a pull request from there.
+
+
+bitbucket has unlimited private repos for life. hmmm... interesting...
