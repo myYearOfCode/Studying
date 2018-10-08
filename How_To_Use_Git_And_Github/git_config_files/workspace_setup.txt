@@ -16,3 +16,10 @@ git config --global core.editor "subl -n -w"
 and these two commands as well.
 git config --global push.default upstream
 git config --global merge.conflictstyle diff3
+
+Do this on a mac to keep .DS_Store files from messing up git status
+
+git config --global core.excludesfile ~/.gitignore_global
+cd ~/
+touch .gitignore_global
+open the .gitignore_global file and add: .DS_Store
