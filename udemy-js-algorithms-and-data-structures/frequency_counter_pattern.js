@@ -78,3 +78,33 @@ function anagram_checker(stringA,stringB){
 	}	
 	return true
 }
+
+// same as freq_checker above but thus takes in numbers and splits them to strings
+function sameFrequency(numA,numB){
+  let freq_dictA ={}
+  let freq_dictB ={}
+  let arrA
+  let arrB
+  arrA=numA.toString().split("")
+  arrB=numB.toString().split("")
+  console.log(arrA[0])
+  
+  for (let i = 0; i<arrA.length; i++){
+      freq_dictA[arrA[i]] = (freq_dictA[arrA[i]]+1 || 1)
+      console.log(arrA[i])
+  }
+  for (let i = 0; i<arrB.length; i++){
+      freq_dictB[arrB[i]] = (freq_dictB[arrB[i]]+1 || 1)
+      console.log(arrB[i])
+  }
+
+ for (let val in freq_dictA){
+      if (freq_dictB[val] === -1){
+          return false
+      }
+      if (freq_dictB[val] !== freq_dictA[val]){
+          return false
+      }
+  } 
+  return true
+}
