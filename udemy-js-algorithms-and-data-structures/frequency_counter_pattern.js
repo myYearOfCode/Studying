@@ -9,7 +9,7 @@
 // do the same thing with the second array
 // then compare the two dicts at the end.
 
-// this can be seen in anagram questions or in similar math questions where for instance
+// this can be seen in anagram questions, numeric anagrams, or in similar math questions where for instance
 // you are checking if one array is the square / +1 from or the square root of the other array.
 // in the second instance you make both comparison dicts, then do two checks
 // #1 make sure the key exists in the other dict (using whatever math you need here. ex n^2)
