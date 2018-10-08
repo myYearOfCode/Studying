@@ -7,6 +7,8 @@ symbol,
 number,
 object.
 
+'Infinity is a number in js!'
+
 STRING ESCAPING
 
 Code Output
