@@ -1,13 +1,17 @@
-for strings:
-a string wrapped in single quotes won't replace #{} with the variable contents.
-a string wrapped in double quotes will.
+string formatting:
+  insert vars or ruby(that will be run before insertion) into a string with #{}
+  a string wrapped in single quotes won't replace #{} with the variable contents.
+  a string wrapped in double quotes will.
 
 %{element} string formatting will look for the element in the brackets in a passed dict.
 
 formatter = "%{first} %{second} %{third} %{fourth}" #string setup
-puts formatter % {first: "one", second: "two", third: "three", fourth: "four"} #print and pass in dict
+puts formatter % {first: "one", second: "two", third: "three", fourth: "four"} 
+#print and pass in dict
 
-""" exists in ruby as well. pretend that everything is escaped until you hit the next """
+""" exists in ruby as well. ignore everything until you hit the next """
+
+# this is how you comment
 
 =begin
 My 
@@ -15,6 +19,23 @@ multiline
 comment
 here
 =end
+
+HERE DOC
+<<~END
+this is a long multi line string that
+  keeps it's formatting when printed
+or passed. You can use any all caps word that isn't 
+present in the quote to open it and close it.
+END
+
+# this is another multi line string option
+puts %q{
+There's something going on here.
+With this weird quote
+We'll be able to type as much as we like.
+Even 4 lines if we want, or 5 or 6.
+}
+
 escape sequences
 \\	Backslash ()
 \'	Single-quote (')
@@ -30,21 +51,33 @@ escape sequences
 \ooo	Character with octal value ooo
 \xhh	Character with hex value hh
 
-use ''' (single quotes) when you need a multi-line string that contains #{} formatting, but you don't want them to be processed yet or at all. Use """ (double quotes) for all other multi-line strings.
+use ''' (triple single quotes) when you need a multi-line string that contains #{} formatting, but you don't want them to be processed yet or at all. Use """ (triple double quotes) for all other multi-line strings.
 
-print doesnt add a newline to the end, puts does. this is useful for concatenating output and for input forms.
+print doesnt add a newline to the end, puts does. this is useful for concatenating output and for printing before input forms.
 
-gets receives command line input,
-chomp strips trailing whitespace
-close -- Closes the file. Like File->Save.. in your editor.
-read -- Reads the contents of the file. You can assign the result to a variable.
-readline -- Reads just one line of a text file.
-truncate -- Empties the file. Watch out if you care about the file.
-write('stuff') -- Writes "stuff" to the file.
-seek(0) -- Move the read/write location to the beginning of the file.gets.chomp.to_i can turn the input string into a number
+'gets' receives command line input,
+'chomp' strips trailing whitespace
+'close' -- Closes the file. Like File->Save.. in your editor.
+'read' -- Reads the contents of the file. You can assign the result to a variable.
+'readline' -- Reads just one line of a text file.
+'truncate' -- Empties the file. Watch out if you care about the file.
+'write('stuff')' -- Writes "stuff" to the file.
+'seek(0)' -- Move the read/write location to the beginning of the file.gets.chomp.to_i can turn the input string into a number
+
+how to read cli passed args
+  filename = ARGV.first #for some reason, ARGV[0] doesn't work.
+  if there is more than one arg, then they are stored as an array
+
+you can iterate through the args with 
+  for arg in ARGV
+   puts arg
+  end
 
 how to open a file (make a file object)
 target = open(file, 'w')
+indata = target.read # read from file object
+target.close
+
 file open options
 Mode |  Meaning
 -----+--------------------------------------------------------
@@ -73,12 +106,28 @@ Mode |  Meaning
 -----+--------------------------------------------------------
 "t"  |  Text file mode (may appear with
      |  any of the key letters listed above except "b").
+
 you can multiply strings out like this, but it HAS to be (string * integer) in that order.
 "." * 10 
 >> ..........
 
 you can check if a file exists with
 File.exist?(filepath)
+
+modules and methods
+module Ex26 #this defines the module.
+  def Ex26.break_words(stuff)# This function will break up words for us.
+    words = stuff.split(' ')
+    return words
+  end
+end
+
+#to run the module
+sentence = "All good things come to those who wait."
+words = Ex26.break_words(sentence)
+
+#import a module or method or function from another file
+require_relative "somelogic"
 
 terminal stuff
 echo "This is a test file." > test.txt //this writes text to a file
@@ -88,12 +137,12 @@ you can use ; to add multiple commands to one line.
 
 function, two ways
 
-def print_two(*args)
+def print_two(*args) #this accepts any number of args, but only uses the first 2
   arg1, arg2 = args
   puts "arg1: #{arg1}, arg2: #{arg2}"
 end
 
-def print_two_again(arg1, arg2)
+def print_two_again(arg1, arg2) #this accepts only two args
   puts "arg1: #{arg1}, arg2: #{arg2}"
 end
 
@@ -101,28 +150,37 @@ ri is the ruby documentation reader in terminal.
 'ri file' will return docs on 'file'
 'ri "File#seek"' will return docs on file and look for the seek section
 
-ruby implicitly returns whatever is the last line of a function unless an explicit return statement is there.
+ruby implicitly returns whatever is the last line of a function unless an explicit 
+return statement is there.
 
-HERE DOC
-<<~END
-this is a long multi line string that
-  keeps it's formatting when printed
-or passed. You can use any all caps word that isn't 
-present in the quote to open it and close it.
-END
 
-for loops
+FOR LOOPS
 there are two different preferred ways to do for loops in ruby
 one is wrapped in 'do' and 'end'
 the other is wrapped in  { ... }
 
+#way # 1
 fruits.each do |fruit|
 	puts "A fruit of type: #{fruit}"
 end
 
+# way # 2
 # this is a different syntax on the preferred way
 # stylistically ok, just different.
 change.each {|i| puts "I got #{i}" }
+
+hashmaps
+  states = {
+    'Oregon' => 'OR',
+    'Florida' => 'FL',
+    'California' => 'CA',
+    'New York' => 'NY',
+    'Michigan' => 'MI'
+  }
+
+||= meaning
+if null, then set it to...
+city ||= 'Does Not Exist' #if city is null, assign "Does Not Exist" to it.
 
 range operator
 (0..5)
@@ -132,8 +190,48 @@ with three periods is is exclusive (ie doesn't include it in the output)
 regex in ruby
 choice =~ (/[0-9]+/)  #this returns a boolean
 
-put stands for "put string" That almost makes sense!
+puts stands for "put string" That almost makes sense!
 
 You can insert _ into numbers to replace numbers (?)
 
-classes are named in camelCase and functions (methods) are named in underscore format.
+classes are named in camelCase 
+and functions (methods) are named in underscore format.
+
+OOP
+#this is how you define the class
+class Song #note the caps
+
+  def initialize(lyrics)
+    @lyrics = lyrics
+  end
+# in a class, @ creates a var that is part of the object. $ creates a global.
+
+  def sing_me_a_song()
+    @lyrics.each {|line| puts line}
+  end
+end
+
+#this is how you instantiate the object
+happy_bday = Song.new(["Happy birthday to you",
+  "I don't want to get sued",
+  "So I'll stop right there"])
+ 
+#this is how you set up inheritance
+class Ditty < Song
+end
+#now ditty has initialize and sing_me_a_song methods.
+
+When something is in a 'is_a' relationship you should use inheritance 
+When something is in a 'has_a' relationship you should go for composition.
+
+# Inheritance can be a pain in the ass, so composition is also used.
+# COMPOSITION
+class Poop
+  .call()
+# .... And So, On converting every action into Class Object
+class Man
+  def poop()
+    eat = Poop.new()
+    eat.call()
+  end
+end
