@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# -*- ruby -*-
+
+require_relative 'rake/clean'
+require_relative 'rake/testtask'
+
+task :default => :test
+
+task :test do
+  ruby 'path_to_enlightenment.rb'
+end
+
