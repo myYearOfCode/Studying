@@ -1,0 +1,19 @@
+linked lists
+disadvantage:
+slow to get to the end of the list. Linear time! O(N)
+advantages:
+insert or delete can be very fast, if they are at the beginning of the list. O(1)
+
+doubly linked list each element is linked to it's child and parent.
+
+in java she makes it as an object with some methods and attributes
+attributes are next and 
+append, prepend, and deleteWithValue methods
+append is simple. walk to the last element, and add your new node to the next value
+of the current last node
+prepend is pretty easy as well. simply set your node's next value to be the current head. 
+then update the global head value to be the new head.
+deleteWithValue walks the list until it is one before your search term. then set
+the next value to next.next. this essentially cuts out the node you wanted to delete.
+nothing is deleted, but it is out of the chain and won't bother us any more.
+
