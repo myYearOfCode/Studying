@@ -41,37 +41,37 @@ typeof myVar;
 >> number
 
 if statement example 
-if (num > 10) {
-  return "Bigger than 10";
-} else {
-  return "10 or Less";
-}
-Switch() example
-switch(val){
-case "a":
-answer = "apple";
-break;
-case "b":
-answer = "bird";
-break;
-case "c":
-answer = "cat";
-break;
-default:
-answer = "stuff";
-break;
+  if (num > 10) {
+    return "Bigger than 10";
+  } else {
+    return "10 or Less";
+  }
+  Switch() example
+  switch(val){
+  case "a":
+  answer = "apple";
+  break;
+  case "b":
+  answer = "bird";
+  break;
+  case "c":
+  answer = "cat";
+  break;
+  default:
+  answer = "stuff";
+  break;
 
-}
+  }
 
 example object
-var cat = {
-  name: "Whiskers",
-  "legs": 4,
-  "tails": 1,
-  5: "five",
-  "enemies": ["Water", "Dogs"]
-};
-all properties are converted to strings
+  var cat = {
+    name: "Whiskers",
+    "legs": 4,
+    "tails": 1,
+    5: "five",
+    "enemies": ["Water", "Dogs"]
+  };
+all properties/args are converted to strings
 
 accessing properties of an object. dot notation or bracket notation
 brackets can be used with things that have spaces in them, dots cannot.
@@ -112,25 +112,25 @@ use
 This returns true or false.
 
 accessing nested arrays
-var myPlants = [
-{
-type: "flowers",
-list: [
-"rose",
-"tulip",
-"dandelion"
-]
-},
-{
-type: "trees",
-list: [
-"fir",
-"pine",
-"birch"
-]
-}
-];
-var secondTree = myPlants[1].list[1];
+  var myPlants = [
+    {
+      type: "flowers",
+      list: [
+        "rose",
+        "tulip",
+        "dandelion"
+      ]
+    },
+    {
+      type: "trees",
+      list: [
+        "fir",
+        "pine",
+        "birch"
+      ]
+    }
+  ];
+  var secondTree = myPlants[1].list[1];
 
 while loops sound like a bad idea
 var ourArray = [];
