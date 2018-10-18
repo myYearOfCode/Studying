@@ -64,6 +64,6 @@ function reverseString(s) {
 
 //////////////////forEach loop 
 //used on arrays
-  this.forEach(function(element) {
+  this.forEach(function(element,optionalIndex) {
       newArray.push(callback(element))
   })
