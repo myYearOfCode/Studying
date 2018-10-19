@@ -1,10 +1,18 @@
 # Studying
-notes from classes and videos
+Larger classes I have taken recently.
 
-I'm doing [Learn Ruby The Hard Way](https://learnrubythehardway.org/)
+[Learn Ruby The Hard Way](https://learnrubythehardway.org/)
 
-    started:20180925 finished:
+    started:2018.09.25 finished:
 
 Udacity - [How to use git and github](https://classroom.udacity.com/courses/ud775/)
 
-    started:20180909 finished:
+    started:2018.09.09 finished:2018.10.05
+
+Javascript: The Good Parts
+
+	started: 2018.10.18 finished:
+
+up next
+
+Udemy - Git a web Developer Job
