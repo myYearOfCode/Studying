@@ -1,19 +1,23 @@
-template literals as a way of making strings.
-use backticks and ${} to  put variables in strings.
-
-const person = {
-  name: "Zodiac Hasbro",
-  age: 56
-};
+STRING FORMATTING
+// template literals as a way of making strings.
+// use backticks and ${} to  put variables in strings.
 
 // Template literal with multi-line and string interpolation
 const greeting = `Hello, my name is ${person.name}!
 I am ${person.age} years old.`;
 
-console.log(greeting); // prints
-// Hello, my name is Zodiac Hasbro!
-// I am 56 years old
+// in console.log and console.debug there is a second way of 
+// inserting into a string
+console.log('my string here %s',stringVariableName)
+	%O Pretty-print an Object on multiple lines.
+	%o Pretty-print an Object all on a single line.
+	%s String.
+	%d Number (both integer and float).
+	%j JSON. Replaced with the string '[Circular]' if the argument contains circular references.
+	%% Single percent sign ('%'). This does not consume an argument.
 
+
+STRING METHODS
 string.length
 // returns length
 string.indexOf("findMe", optionalStartingPosition)
@@ -67,3 +71,20 @@ string.repeat(5)
 // returns a new string with 5 copies of the input string in it.
 string.startsWith()
 // does the string start with the search term?
+
+String(5) // => "5"
+//creating a string from a non-string value
+
+STRING ESCAPING
+Code Output
+\'      single quote
+\"     double quote
+\\     backslash
+\n     newline
+\r     carriage return
+\t     tab
+\b    backspace
+\f     form feed
+
+
+

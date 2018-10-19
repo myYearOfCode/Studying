@@ -1,0 +1,105 @@
+starting with this tutorial
+https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb
+
+I used postgres.app from https://postgresapp.com/documentation/ in order to install postgres
+
+postgres
+Host	localhost
+Port	5432
+User	rossdaly
+Database	rossdaly
+Password	none
+Connection URL	postgresql://localhost
+
+the default users are nice in postgres, but they are all super users. 
+We need to set up new users with limited permissions. CREATE ROLE is a sql query
+that we could use on the database, or we could use the createuser utility that 
+is installed with postgres. this utility calls CREATE ROLE for you.
+
+this is the full SQL command
+CREATE ROLE username WITH LOGIN PASSWORD 'quoted password' [OPTIONS]
+
+you enter it into the psql tool.
+postgres=# \password postgres //make a new password, default is blank.
+postgres=# CREATE ROLE newuser WITH LOGIN PASSWORD 'boozer232'
+
+then you get this
+                                   List of roles
+ Role name |                         Attributes                         | Member of 
+-----------+------------------------------------------------------------+-----------
+ newuser   |                                                            | {}
+ patrick   |                                                            | {}
+ postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ rossdaly  | Superuser, Create role, Create DB                          | {}
+
+ to add a permission to patrick, enter this
+
+postgres=# ALTER ROLE patrick CREATEDB; 
+postgres=# \du 
+postgres=# \q # quits
+
+and you get this
+
+                                   List of roles
+ Role name |                         Attributes                         | Member of 
+-----------+------------------------------------------------------------+-----------
+ newuser   |                                                            | {}
+ patrick   | Create DB                                                  | {}
+ postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ rossdaly  | Superuser, Create role, Create DB                          | {}
+
+but it can be a lot easier using the postgres command line utilities
+here are just a few 
+	createuser: creates a user
+	createdb: creates a database
+	dropuser: deletes a user
+	dropdb: delete a database
+	postgres: actually runs the sql server itself
+	pg_dump: dumps the contents of a single db to a file
+	pd_dumpall: dumps all dbs to a file
+	psql: we just used this to execute the sql queries
+
+using those command line utilities to make a new user
+	createuser patrick --createdb
+
+this is how you log in as a specific user
+	psql postgres -U patrick
+
+CREATING DATABASES
+similarly there are two ways to make a new user
+in SQL:
+	CREATE DATABASE databasename;
+	CREATE DATABASE super_awesome_application;
+now the db is created, but no one has access.
+	postgres=> GRANT ALL PRIVILEGES ON DATABASE super_awesome_application TO patrick;
+	postgres=> \list
+                                          List of databases
+           Name            |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+---------------------------+----------+----------+-------------+-------------+-----------------------
+ postgres                  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ rossdaly                  | rossdaly | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ super_awesome_application | patrick  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0                 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                           |          |          |             |             | postgres=CTc/postgres
+ template1                 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                           |          |          |             |             | postgres=CTc/postgres
+	postgres=> \connect super_awesome_application
+	or
+	postgres=> \c super_awesome_application
+	
+	You are now connected to database "super_awesome_application" as user "patrick"                 
+postgres=> \dt
+this would show us the tables in the currently connected database, but it is empty
+
+as with before, creating a db using the command line utility is simpler, but
+you can't manage the db after is is created. to do that you need to use psql
+
+	createdb super_awesome_application -U patrick
+
+DELETE DATABASE
+DROP DATABASE database name
+
+GUI APPS
+there are two recommended free ones.
+https://www.pgadmin.org/ and https://eggerapps.at/postico/
+pgadmin looks like it has better features, but is worse looking.

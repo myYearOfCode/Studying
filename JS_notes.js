@@ -9,17 +9,6 @@ object.
 
 'Infinity is a number in js!'
 
-STRING ESCAPING
-
-Code Output
-\'      single quote
-\"     double quote
-\\     backslash
-\n     newline
-\r     carriage return
-\t     tab
-\b    backspace
-\f     form feed
 
 .length is the way to find a length of a string
 
@@ -40,129 +29,9 @@ typeof is the way to find out the type of an item.
 typeof myVar;
 >> number
 
-if statement example 
-  if (num > 10) {
-    return "Bigger than 10";
-  } else {
-    return "10 or Less";
-  }
-  Switch() example
-  switch(val){
-  case "a":
-  answer = "apple";
-  break;
-  case "b":
-  answer = "bird";
-  break;
-  case "c":
-  answer = "cat";
-  break;
-  default:
-  answer = "stuff";
-  break;
 
-  }
 
-example object
-  var cat = {
-    name: "Whiskers",
-    "legs": 4,
-    "tails": 1,
-    5: "five",
-    "enemies": ["Water", "Dogs"]
-  };
-all properties/args are converted to strings
 
-accessing properties of an object. dot notation or bracket notation
-brackets can be used with things that have spaces in them, dots cannot.
-var myObj = {
-  prop1: "val1",
-  prop2: "val2"
-};
-var prop1val = myObj.prop1; // val1 dot
-var prop1val = myObj["prop1"]; // val1 bracket
-var prop2val = myObj.prop2; // val2 dot
-var prop2val = myObj["prop2"]; // val2 bracket
-
-updating object properties
-ourDog.name = "Happy Camper";
-ourDog["name"] = "Happy Camper";
-
-deleting an object property
-delete myDog.tails;
-
-using an object as a switch statement
-function phoneticLookup(val) {
-var result = "";
-var myObj = {
-"alpha":"Adams",
-"bravo":"Boston",
-"charlie":"Chicago",
-"delta":"Denver",
-"echo":"Easy",
-"foxtrot":"Frank"
-}
-result=myObj[val];
-return result;
-}
-check for a property
-use 
-.hasOwnProperty(propname)
-
-This returns true or false.
-
-accessing nested arrays
-  var myPlants = [
-    {
-      type: "flowers",
-      list: [
-        "rose",
-        "tulip",
-        "dandelion"
-      ]
-    },
-    {
-      type: "trees",
-      list: [
-        "fir",
-        "pine",
-        "birch"
-      ]
-    }
-  ];
-  var secondTree = myPlants[1].list[1];
-
-while loops sound like a bad idea
-var ourArray = [];
-var i = 0;
-while(i < 5) {
-  ourArray.push(i);
-  i++;
-}
-
-for Loops
-for ([initialization]; [condition]; [final-expression])
-
-do while loops
-why would I ever use one of these? Because it ALWAYS runs once.
-var ourArray = [];
-var i = 0;
-do {
-  ourArray.push(i);
-  i++;
-} while (i < 5);
-
-Try Catch Finally Loops
-
-function reverseString(s) {
-     try {
-        s=s.split("").reverse().join("")
-    } catch (e) {
-        console.log(e.message);
-    } finally {
-        console.log(s)
-    }
-}
 
 Throwing Errors
 
@@ -179,16 +48,17 @@ function isPositive(a) {
 
 Math.random() can return a 0 but never quite return a 1
 Math.floor() rounds a number down to its nearest whole number.
+Math.ceil() rounds up.
 
 generate a random number between two numbers
 Math.floor(Math.random() * (max - min + 1)) + min
 
 parseInt converts a string to an int, or returns a NaN
 
-parseInt can also do radix or binary number conversions
+parseInt can also do radix or binary number conversions (ie other bases)
 
 function convertToInteger(str) {
-return parseInt(str,2)
+  return parseInt(str,2)
 }
 convertToInteger("10011")
 
@@ -200,20 +70,25 @@ ES6
 
 let vs var vs const
 let does not allow you to reassign a variable
-var can create global variables in root level for statements. let keeps the var in the statement and throws an error when accessed outside of it (if not defined outside of it).
+var can create global variables in root level for statements. let keeps the var 
+in the statement and throws an error when accessed outside of it (if not 
+defined outside of it).
 const is similar to let, but read only once assigned.
-A common practice when naming constants is to use all uppercase letters, with words separated by an underscore.
+A common practice when naming constants is to use all uppercase letters, with 
+words separated by an underscore.
 ...but...
-objects and arrays created with const are still mutable, it only prevents you from swapping the obj or array entirely for another.
+objects and arrays created with const are still mutable, it only prevents you 
+from swapping the obj or array entirely for another.
 
 ARROW FUNCTIONS
 old way of defining an anon. function
-const myFunc = function() {
+
+const myFunc = function(args) {
   const myVar = "value";
   return myVar;
 }
 new way
-const myFunc = () => {
+const myFunc = (args) => {
   const myVar = "value";
   return myVar;
 }
@@ -226,152 +101,88 @@ put it in parens after an '=' and before the arrow. kinda weird. I know.
 const doubler = (item) => item * 2;
 
 arrows, maps and filter examples
-const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34];
-const squareList = (arr) => {
-"use strict";
+  const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34];
+  const squareList = (arr) => {
+    "use strict";
 
-const integers = arr.filter((num) => Number.isInteger(num) && num >0) ;
-// filter the array to only include positive integers
-const squaredIntegers = integers.map(x => x*x)
-// map the array onto squaredIntegers and square it.
-return squaredIntegers;
-};
-const squaredIntegers = squareList(realNumberArray);
-console.log(squaredIntegers);
+    const integers = arr.filter((num) => Number.isInteger(num) && num >0) ;
+    // filter the array to only include positive integers
+    const squaredIntegers = integers.map(x => x*x)
+    // map the array onto squaredIntegers and square it.
+    return squaredIntegers;
+  };
+  const squaredIntegers = squareList(realNumberArray);
+  console.log(squaredIntegers);
 
-es6 introduced default parameters
+default parameters (introduced in es6)
 in short - just give it a value in the function definition and it will use that if nothing is passed in.
-function greeting(name = "Anonymous") {
-  return "Hello " + name;
-}
-console.log(greeting("John")); // Hello John
-console.log(greeting()); // Hello Anonymous
+  function greeting(name = "Anonymous") {
+    return "Hello " + name;
+  }
+  console.log(greeting("John")); // Hello John
+  console.log(greeting()); // Hello Anonymous
 
 rest operator ( ... )
-if you use this in a function declaration it allows it to accept any number of arguments. it then puts them in an array
-function howMany(...args) {
-  return "You have passed " + args.length + " arguments.";
-}
-console.log(howMany(0, 1, 2)); // You have passed 3 arguments
-console.log(howMany("string", null, [1, 2, 3], { })); // You have passed 4 arguments.
-     //another example
-const sum = (function() {
-"use strict";
-return function sum(...args) {
-return args.reduce((a, b) => a + b, 0);
-};
-})();
-console.log(sum(1, 2, 3)); // 6
+if you use this in a function declaration it allows it to accept any number of 
+  arguments. it then puts them in an array
+  function howMany(...args) {
+    return "You have passed " + args.length + " arguments.";
+  }
+  console.log(howMany(0, 1, 2)); // You have passed 3 arguments
+  console.log(howMany("string", null, [1, 2, 3], { })); // You have passed 4 arguments.
+       //another example
+  const sum = (function() {
+  "use strict";
+  return function sum(...args) {
+  return args.reduce((a, b) => a + b, 0);
+  };
+  })();
+  console.log(sum(1, 2, 3)); // 6
 
 spread operator
 using the ... in front of an array name will 'unpack' it into multiple arguments
 spread can be used to concat arrays. is it a good idea? i have no idea.
-However, the spread operator only works in-place, like in an argument to a function or in an array literal. The following code will not work:
-const spreaded = ...arr; // will throw a syntax error
-destructuring assignment
-easily unpack an object to variables.
-essentially this allows you to grab object properties and apply them to another object at will. you can rename them if needed.
-var voxel = {x: 3.6, y: 7.4, z: 6.54 };
-const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54
-If instead you want to store the values of voxel.xinto a, voxel.yinto b, and voxel.zinto c, you have that freedom as well.
-const { x : a, y : b, z : c } = voxel // a = 3.6, b = 7.4, c = 6.5
+However, the spread operator only works in-place, like in an argument to a 
+function or in an array literal. The following code will not work:
+  const spreaded = ...arr; // will throw a syntax error
 
-destructuring assignment in nested objects.
-it seems like I might not use this a ton. 
-here is an example.
-const LOCAL_FORECAST = {
-today: { min: 72, max: 83 },
-tomorrow: { min: 73.3, max: 84.6 }
-};
-function getMaxOfTmrw(forecast) {
-"use strict";
-
-const {tomorrow:{max:maxOfTomorrow}}=forecast ;
-return maxOfTomorrow;
-}
-console.log(getMaxOfTmrw(LOCAL_FORECAST)); // should be 84.6
 
 Destructuring assignment in arrays
 much easier syntax to understand
-const [a, b] = [1, 2, 3, 4, 5, 6];
-console.log(a, b); // 1, 2
-you can also use commas as unnamed variables when you need to get past them to the real data.
-const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
-console.log(a, b, c); // 1, 2, 5
+  const [a, b] = [1, 2, 3, 4, 5, 6];
+  console.log(a, b); // 1, 2
+you can also use commas as unnamed variables when you need to get past them to 
+the real data.
+  const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+  console.log(a, b, c); // 1, 2, 5
 
 swapping two variables in arrays with Destructuring assignment 
-let a = 8, b = 6;
-(() => {
-"use strict";
-[a,b] = [b,a];
-})();
-console.log(a); // should be 6
-console.log(b); // should be 8
+  let a = 8, b = 6;
+  (() => {
+    "use strict";
+    [a,b] = [b,a];
+  })();
+  console.log(a); // should be 6
+  console.log(b); // should be 8
 
 using the rest operator to collect the undestructured elements.
-pick the first ones that you want and then use the rest operator to grab until the end. this does not work with other number sequences though. (ie first , third and last) :/
-const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
-console.log(a, b); // 1, 2
-console.log(arr); // [3, 4, 5, 7]
+pick the first ones that you want and then use the rest operator to grab until 
+the end. this does not work with other number sequences though. (ie first , third and last) :/
+  const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
+  console.log(a, b); // 1, 2
+  console.log(arr); // [3, 4, 5, 7]
 
-const source = [1,2,3,4,5,6,7,8,9,10];
-function removeFirstTwo(list) {
-"use strict";
-// change code below this line
-const [a,b, ...arr] = list; // change this
-// change code above this line
-return arr;
-}
-const arr = removeFirstTwo(source);
-console.log(arr); // should be [3,4,5,6,7,8,9,10]
-console.log(source); // should be [1,2,3,4,5,6,7,8,9,10];
-
-use destructuring assignment to pass an object in as a function's parameters.
-I hope to care about this some day. currently it seems nuanced and a small thing to remember compared to the rest of human knowledge.
-Consider the code below:
-const profileUpdate = (profileData) => {
-  const { name, age, nationality, location } = profileData;
-  // do something with these variables
-}
-This effectively destructures the object sent into the function. This can also be done in-place:
-const profileUpdate = ({ name, age, nationality, location }) => {
-  /* do something with these fields */
-}
-This removes some extra lines and makes our code look neat.
-template literals as a way of making strings.
-use backticks and ${dot.notation} to  put variables in strings.
-
-const person = {
-  name: "Zodiac Hasbro",
-  age: 56
-};
-
-// Template literal with multi-line and string interpolation
-const greeting = `Hello, my name is ${person.name}!
-I am ${person.age} years old.`;
-
-console.log(greeting); // prints
-// Hello, my name is Zodiac Hasbro!
-// I am 56 years old.
-
-getters and setters to control access to an object
-class Book {
-  constructor(author) {
-    this._author = author;
+  const source = [1,2,3,4,5,6,7,8,9,10];
+  function removeFirstTwo(list) {
+  "use strict";
+  // change code below this line
+  const [a,b, ...arr] = list; // change this
+  // change code above this line
+  return arr;
   }
-  // getter
-  get writer(){
-    return this._author;
-  }
-  // setter
-  set writer(updatedAuthor){
-    this._author = updatedAuthor;
-  }
-}
-const lol = new Book('anonymous');
-console.log(lol.writer);  // anonymous
-lol.writer = 'wut';
-console.log(lol.writer);  // wut
+  const arr = removeFirstTwo(source);
+  console.log(arr); // should be [3,4,5,6,7,8,9,10]
+  console.log(source); // should be [1,2,3,4,5,6,7,8,9,10];
 
 require() is the old way of importing a module. it brings in all of it. import() allows you to bring in one function at a time.
 import { countItems } from "math_array_functions"
@@ -381,7 +192,9 @@ export() needs to be done if you want to import() your own code. here is how you
 where does it save these to? is this similar to a library now?
 const capitalizeString = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
+
 }
+
 export { capitalizeString } //How to export functions.
 export const foo = "bar"; //How to export variables.
 
@@ -393,88 +206,6 @@ this feels weird. you can export one value from a file. it cant be a var, let or
 export default function add(x,y) {
   return x + y;
 }
-
-regex
-
-.test() will return true if the search term is found in the stringlet testStr = "freeCodeCamp";
-let testRegex = /Code/;
-testRegex.test(testStr);
-// Returns true
-
-.match() will actually extract the first match.
-"Hello, World!".match(/Hello/); // Returns ["Hello"]
-let ourStr = "Regular expressions";
-let ourRegex = /expressions/;
-ourStr.match(ourRegex); // Returns ["expressions"]
-
-.exec() will return something that you can get the index of the search result from
-var closeParen = /\)/.exec(str); 
-if ((closeParen) && (str[closeParen.index-4]!="(")) { 
-console.log(closeParen.index);
-console.log('missing a paren')
-return false 
-}
-
-/Hello/ - literal string search. case sensitive. whitespace insensitive
-/Hello|Goodbye/ - OR search with multiple patterns. matches "Hello" or "Goodbye". any number of patterns can be chained together.
-/Hello/i - ignore case flag. (the /i part) case Insensitive
-/Hello/g - extract multiple matches. (the /g part) Global
-"." = wildcard character
-[] = character classes. a way to specify allowable chars. 
- /b[aiu]g/ will accept bag, big and bug.- = when used inside of a character set this allows you to specify a range. ie /[a-z]/ is all lowercase letters
-[^a-z] - negate a character set with the "^".
-+ = char appears one or more times consecutively. ie /s+/
-* = char appears zero or more times consecutively. ie /As*/ will hit on "As", "Ass", and "A" because those have one, two and zero s's
-greedy - expressions are greedy by default. they will find the longest sub-string possible that fits the expression.  /t[a-z]*i/ will return titani when given titanic.
-
-lazy uses the ? modifier.  /t[a-z]*?i/ will return ti when given titanic to search through. put the ? before the ending character or pattern.
-^ outside of a character set means to search the beginning of a string. /^beginning/
-$ allows you to find endings. /caboose$/
-/\w/ is special in js, it is equal to /[A-Za-z0-9_]/
-/\W/ is special in js, it is equal to /[^A-Za-z0-9_]/
-/\d/ is numbers only. [0-9]
-/\D/ is non-numbers only. [^0-9]
-/\s/ matches whitespace, carriage return, tab, form feed, and new line characters. [ \r\t\f\n\v]
-/\S/ matches non-Whitespace.
-{3,6} quantity specifier allows you to specify the min and max that a number will appear. /a{3,5}h/ note - it won't fail if you give it more of the char, it just won't select it. to fail then add a negative character [^s] set after the quantity specifier.
-{3,} quantity specifier lower number only. 
-{3} quantity specifier exact number only. 
-? zero or one of the preceding element
-(?=...) positive lookahead makes sure something is present but doesn't return it.
-(?!=...) negative lookahead makes sure something is not present and doesn't return it.
-/(\w+)\s\1/ capture groups in parens followed by a \ and a number. these help you find the nth occurrence of a pattern. BUT ONLY IF YOU KNOW THE SHIT IN THE MIDDLE, or fake it with .* The number needs to be placed in a regex where it would be in the real world. ie you aren't saying "search for the fourth time this thing appears" you are saying "search for this phrase, then this other stuff, then the phrase should appear again, then other stuff..." it just saves you time of reusing the same search pattern.
-
-find and replace with capture groups
-let wrongText = "The sky is silver.";
-let silverRegex = /silver/;
-wrongText.replace(silverRegex, "blue");
-// Returns "The sky is blue."
-You can also access capture groups in the replacement string with dollar signs ($).
-"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
-// Returns "Camp Code"
-
-
-I don't understand why the \D* needs to be in the second positive lookup regex
-let sampleWord = "astronaut";
-let pwRegex = /(?=\w{6,})(?=\D*\d{2,})/; // Change this line
-let result = pwRegex.test(sampleWord);
-Use look aheads in the pwRegexto match passwords that are greater than 5 characters long and have two consecutive digits.
-
-Your regex should match "bana12"
-Your regex should match "abc123"
-question 2
-https://guide.freecodecamp.org/certifications/javascript-algorithms-and-data-structures/regular-expressions/reuse-patterns-using-capture-groups
-
-this answer doesn't make much sense 
-let repeatNum = "42 42 42";
-let reRegex =  /^(\d+)\s\1\s\1$/; //this is using capture groups. the \1 refers to whatever was captured in (\d+)
-let result = reRegex.test(repeatNum);          
-
-note - .match and .test have reversed order for string and regexp. annoying
-
-test if the string starts and ends with the same vowel.
-const re = new RegExp(/^([aeiou]{1}).*\1$/);
-re.test(abcdea') // true
 
 DEBUGGING
 
@@ -507,19 +238,6 @@ you can also spread an array out into another array while defining it.
  let sentence= ['learning', ...fragment, 'is', 'fun'];
 .indexOf() will return an index of a passed element.
 return inputArray.indexOf(searchElement) == -1 ? false : true; // this will return true or false if an element is in an array.
-
-removing a key value pair
-delete object.key;
-check for a property
-users.hasOwnProperty('Alan');
-
-for in loops
-
-for (let user in users) {
-  console.log(user);
-};
-
-Object.keys() will return an array of the key names.
 
 basic algo scripting
 
