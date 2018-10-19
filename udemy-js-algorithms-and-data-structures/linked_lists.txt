@@ -12,7 +12,7 @@ append, prepend, and deleteWithValue methods
 append is simple. walk to the last element, and add your new node to the next value
 of the current last node
 prepend is pretty easy as well. simply set your node's next value to be the current head. 
-then update the global head value to be the new head.
+then update the global head value to be the new head. 
 deleteWithValue walks the list until it is one before your search term. then set
 the next value to next.next. this essentially cuts out the node you wanted to delete.
 nothing is deleted, but it is out of the chain and won't bother us any more.
