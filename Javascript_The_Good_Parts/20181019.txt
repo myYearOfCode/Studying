@@ -1,0 +1,101 @@
+Javascript - The Good Parts
+global vars are bad. avoid them at all costs. that's not as easy as you would think in javascript.
+JS has loose typing. the coompiler doesn't know about type errors until they occur (?)
+JS objects have powerful literal notation. that is a way of creating an object
+by listing it's attributes
+This book is written about ES3 :( A whole lot changed since then!
+Setting up a linter would be a good idea.
+he calls JS "lightweight and expressive."
+There are two types of comments
+//
+and 
+/* */
+the second type is bad for commenting out code since it is possible for code to 
+contain */ or /* sequences. regex in particular.
+all numbers are 64 bit floating point,
+NaN is not equal to any other value, including itself. how do you check for NaN?
+Infinity is any number > 1.797693X10^308
+any 2 strings with the same characters are considered to be equal.
+"unlike many other languages, blocks in js do not create a new scope, so variables
+should be defined in the top of the function not in blocks." Is this true in ES6?
+"Falsy" Values
+	false, null, undefined, the empty string "", 0, NaN
+why is it usually necessary to test for-in loops to make sure they contain the 
+'for' property? p35
+break has an optional label that will cause an exit from the labeled statement(?)
+&& returns the first value if it is falsy, otherwise it will return the second.
+That is totally not what I thought that did.
+the regex 'm' flag treats the ^ and $ as 
+"look for this at the start of end of every line" as opposed to 
+"look for this at the start of end of this string"
+Objects are passed around by reference, they are never copied.
+there is an Object.create function on p53 that I am unsure why it is needed.
+DELEGATION is how JS looks for a method or property in an object. It looks at the 
+object, and then looks at it's parent, and goes up until it runs out of parents.
+prototype relations are dynamic, meaning that if you add or change a prototype
+method, all of the descendants of it will instantly get the new version.
+'.hasOwnProperty' doesn't delegate. it only looks in the current object. It WILL
+return functions though :/
+ENUMERATION for-in works on objects as well, but it comes up with function as well
+as properties. The most common way to sort those out is to use .hasOwnProperty
+in addition to typeof !== 'function'
+IF you need the propertied to be in a specific order, the best way is to pass in
+an array of property names and then do a traditional for loop iterating through it.
+delete allows you to delete properties
+one way to minimize global variables is to make your entire app an object. 
+Closure is another way.
+A function literal can appear anywhere that an expression can appear. Functions 
+can be defined in other functions an inner function of course has access to it's
+parameters and variables. It also has access to the params and vars of the function 
+it is nested within. The function object created by a function literal contains 
+a link to that outer context. THIS IS CALLED CLOSURE. This is the source of 
+enormous expressive power.
+when you invoke a function you also pass it 'this' and arguments
+	there is no runtime error if you pass it a different # of args than it expects
+	too many args are dropped
+	too few args are set to undefined
+	there is no type checking as well.
+
+WHAT 'THIS' MEANS
+(1) METHOD INVOCATION PATTERN
+if the function is called as a method 
+	(objectname.function() or objectname[function]())
+	'this' == objectname
+	this was gordon zhu's 'before the dot' ruls
+	these are also called PUBLIC METHODS
+(2) FUNCTION INVOCATION PATTERN
+	when a function is not the property of an object, the global object = 'this'
+	this is weird because it means a nested function in a method has a different 
+	'this' than the parent method
+	you can fix it by declaring a var in the method that is equal to 'this', then
+	using thatvariable as a way to access 'this' within the function.
+(3) CONSTRUCTOR INVOCATION PATTERN
+	using new when you create the function is done on a typr of function called a 
+	constructor. It should have an initial capital
+	'this' is limited to the function's prototypical member(?)
+	doug hates this idea, "the worst of both worlds" meaning classical and prototypal
+	the functionality of the return statement is altered as well.
+	if a constructor is called without a new, bad things can happen.
+(4) APPLY INVOCATION PATTERN
+	using apply you can pass a new 'this' to a function and optionally pass in 
+	arguments as well.
+	var status = Quo.prototype.get_status.apply(statusObject)
+                 |-----another function-|-apply-|-new 'this'-|
+ARGUMENTS
+	arguments stupidly isn's an array. it has .length, but no other array methods
+	there is a way to convert it, but he didn't talk about it.
+RETURN
+	you know how this usually works.
+	if return is explicit, return that thing. if not, return undefined.
+	If NEW is used and no explicit return, it then returns 'this'
+EXCEPTIONS
+	try, catch - will both work on capturing exceptions.
+	throw will work on raising an exception
+	there is only one catch block, so if you need to differentiate between 
+	exceptions you should filter by exception.name
+AUGMENTING TYPES
+	you can add your own method to anything in order to build functionality you 
+	want. You should probably check if it has already been modified by someone 
+	first.
+RECURSION
+	when a function calls itself.
