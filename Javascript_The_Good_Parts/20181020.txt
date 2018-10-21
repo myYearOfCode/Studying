@@ -1,0 +1,47 @@
+RECURSION continued
+	recursion can be very effective in manipulating tree structures like the DOM. 
+	where each recursive call is given a smaller and smaller piece of the tree to work on.
+	functions that recurse very deeply can fail by exhausting the return stack.
+SCOPE
+	functions and parameters defined in a function are not visible outside the 
+	function, but they are visible everywhere within the function.
+CLOSURE
+	avoid creating functions in a loop. it is computationally wasteful.
+	setTimeout(functionName, timeinMS) // this is how you 'set a timer' on a function
+	here they made a helper function to return the value as i. That was to 
+	prevent directly setting something to i as it will change over time. I'm not 
+	sure why returning it from a function is different than setting to it.
+CALLBACKS
+	asynchroonous requests are great for dealing with discontinuous events. He
+	'set' a callback function that will be invoked (in the future) when the request
+	comes back and the callback (in the present) returns.
+	the example seemed to be pseudocode, but I'm not sure.
+MODULE
+	modules are functions or objects that present an interface but hide their
+	state and implementation.
+	modules are a way of 'fixing' JS's global variable issue. ie it helps to 
+	avoid creation of global vars.
+
+	"The general pattern of a module is a function that defines private variables
+	and functions; creates priviliged functions which, through closure, will have 
+	access to private caruables and functions; and that returns the privileged 
+	functions or stores them in an accessible place"
+
+	it is also used to make objects that are 'secure' ie able to be run, but not 
+	have their variables accessed or altered externally.
+CASCADE
+	methods that do not have a return value and return 'this' instead can be 
+	linked together with dot.notation and run right after the previous method.
+	cascading can produce interfaces that are very expressive. It can help control
+	the tendency to make interfaces that try to do too much.
+CURRY
+	currying allows you to produce a new function by combining a function and an 
+	argument.
+	args = slice.apply(arguments) ///// THIS IS HOW you congert args to an array
+	otherwise I don't see why this is super useful.
+MEMOIZATION
+	define an object with a 'memo' array (or object) to store values
+	define a recursive function
+	run the recursive function inside the object
+	return the end product of the recursion.
+	I had a ton of questions on this and emailed ESSAM
