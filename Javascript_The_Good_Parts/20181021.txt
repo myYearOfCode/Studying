@@ -1,0 +1,82 @@
+Classical inheritance gwts shit on by the author. it's a half step back away from 
+js and it mostly causes problems when you try to use it. I think this style uses 
+'new' and breaks badly when you forget.
+
+Object Specifiers
+	if you have a ton of args and it's tough to keep them in order when passing 
+	them, just pass in an object with key val pairs.
+
+Prototypal pattern
+	no classes, we focus on the objects. A new object can inherit the properties 
+	of an old object. 
+	ie: define mammal, then create cat with
+		car myCat = Object.create(mammal)
+	then add the unique features of a cat, like properties and functions.
+	this is called differential ingeritance because you are specifying the 
+	differences between the two.
+
+Functional pattern
+	similar to / the same as (?) module pattern.
+	make a constructor function that:
+		...defines an object
+		...and optionally defines cariables of methods
+		...and returns the object.
+	this is useful because the object can access the vars and methods, but they
+	are not globally available.
+	pg123 - this got deep and confused me
+	super_ is a way of running a method as it was inherited, even if it has been
+	changed or deleted since then.
+	"if we create and object in the functional pattern and they don't use 'this'
+	or 'that' then the object is durable. A durable object is just a collection
+	of functions that act as capabilities."
+PARTS pattern - seems boring. skipping
+ARRAYS
+	in js arrays are objects with array-like characteristics. not fast like 
+	other languages.
+	array literals are the easy way to create an array. use [ ]
+	in js arrays can be filled with all kinds of different value types 
+LENGTH
+	the length returned is the highest index value found, not the # of elements
+	setting a length will cause all elements after that array to be deleted.
+	numbers[numbers.length] = "go" is the same as numbers.push("go")
+DELETE
+	using delete on arrays works, but usually leaves an empty hole. 
+	using splice is the better way, but it can be slow on large arrays.
+ENUMERATION
+	for in works, but doesn't preserve order and can bring up some properties
+	from the prototype
+	FOR works better.
+WHEN TO USE ARRAYS VS OBJECTS
+	if your property names are small sequential numbers, use arrays. else objects
+typeOf returns "Object" on an array. great.
+the author defines two functions to test for arrays pg137
+METHODS
+	when would you add a function to an individual array? why?
+	if can be useful to add methods to Array.method and have them globally avail.
+DIMENSIONS
+	all arrays are 1d in js, but you can build your own 2d arrays
+	2d arrays are called matricies, or a matrix.
+	he showed some code (for loop) to init an array with a val other than undefined
+REGEX
+	borrowed from perl
+	regex capture groups are pretty cool. they make an array of returned values.
+	input is result[0] and the first search result is result[1]...
+	nested regex expressions can have horrible performance.
+	noncapturing groups are more performant than capturing ones
+	noncapturing groups start with a (?
+	making a RegExp object from a literal is the easiest and best way
+	var myregex = /"(?:\\.|[^\\\"]*"/g
+	otherwise you have to escape your slashes and quotes. is this true?? the above
+	looke like it is escaped.
+	the built-in character sets are poorly thought out and not internationally scoped
+METHODS
+	he wrote code for each of the built in methods. why?
+	regexp.test() is much faster than regexp.exec()
+	string.replace() uses '$' strangely so it needs to be escaped with $$
+	toLocaleUpperCase() exists for international languages, mostly turkish.
+STYLE
+	use blocks with if statements to prevent indentation related errors.
+	fall-throughs on switch statements are a pain to debug. don't use them.
+	declare vars at the top of functions.
+	he uses one global var per app to hide vars. I'm not sure how that helps.
+	end lines with {, never start them with it.
