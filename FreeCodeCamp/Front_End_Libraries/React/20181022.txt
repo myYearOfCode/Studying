@@ -99,6 +99,5 @@ Create a controlled input
 	things like form elements have their own states while the user is typing. You can move this mutable state into the React component's state.
 
 Create a controlled form
-	teact can control input and textArea. it can also do other form elements includint the plaing old form element.
+	react can control input and textArea. it can also do other form elements including the plain old form element.
 	with onChange = {this.handleChangeFunctions} and the right functions you can make things happen!
-	
