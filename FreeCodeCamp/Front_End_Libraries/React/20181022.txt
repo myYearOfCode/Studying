@@ -1,0 +1,104 @@
+React is used to render the UI of a web app.
+JSX is a syntax extension.
+{'this is treated as javascript code'} in React
+Babel is a transpiler that converts JSX into valid javascript
+ReactDOM.render(JSX, document.getElementById('root')) <- this is how React renders JSX into the DOM
+nested JSX must return a single element. interesting.
+somments look like {/*      */}
+ReactDOM.render(componentToRender, targetNode)
+
+you can't use class, use className instead.
+self-closing tags. Single tags like <br> need to be closed in JSX, like <br />
+closing tags can be written as <div></div> or <div /> the second way doesn't allow a way to put anything inside it though.
+
+Components are the core of react. They are small pieces of interface that are built up out of smaller pieces and then inserted into the DOM.
+There are two types of components
+	*Stateless functional components
+	*Stateful components
+A stateless component is created with a javasctipt function. is can recieve data and render it, but it does not track changes to the data.
+To create a component with a function, return either JSX of null(?) from it.
+return(<div>here is some awesome text!</div>) <- ex of returning JSX
+
+Creating a component with class.
+	class kitten extends React.component {
+		constructor(props){
+			super(props)
+		}
+		render(){
+			return)
+				<h1>Hi</h1>
+			);
+		}
+	}
+
+Using Multiple components together
+	define the componentes, then create a parent component that wraps the children in a div. You can place the children with <childName /> provided the childName isn't an html tag (duh) React will insert it there.
+
+It's important to think of your app in building blocks. Each block can be one component, and those components are composed together. You can also sub-compose to create a bigger block out of smaller blocks.
+
+If you are passing a component in (as opposed to JSX) you use the same syntax you would use if you were nesting it <componentName />
+ReactDOM.render(<typesOfFood />, document.getElementById('challenge-node'))
+Above is how you insert it into React's lightweight DOM. 
+
+Passing props to a stateless component
+	<App>
+		<Welcome user='mark' /> //if mark was a var, then {mark}
+	</App>
+
+Receiving Props in a stateless component
+	const Welcome = (props) => <h1> hello, {props.user}! </h1> 
+you can call it anything, but convention is to call it props.
+to evaluate JS, wrap it in {}
+
+Pass an array as props.
+	just wrap it in curlies. letters = {[a,b,c,d,e]}
+	access it with {props.letters} or {props.letters.join(', ')}
+
+Use default props
+	after creation, use
+	MyComponent.defaultProps={ location: 'San Francisco'}
+	it seems odd you can't define a default prop when creating it. idk.
+
+Override default props
+	just pass a new value in. pretty simple.
+
+Use prototypes to define the props that you expect.
+	These are like gatekeepers to keep out the wrong data types as properties.
+	MyComponent.propTypes = {handleClick: PropTypes.func.isRequired}
+	above requires you to import PropTypes separately from React.
+		import React, {PropTypes} from 'react'
+
+Access props using this.props
+	the previous page covers hoe to deal with peops on stateless components. es6 class components are slightly different. Instead of {props.data} you would use {this.props.data}
+
+Stateless vs Stateful components
+	Stateless does not have any way to maintain an internal state. ie it resets between executions. Stateless is simpler to maintain and debug. Stateless should be used whenever possible.
+	Stateful  does maintain an internal state. These are referred to as 'components' or 'React components'
+
+Create a stateful component
+	you need to build your component the class way in order to be able to turn it into a stateful one. 
+	Then just set this.state={ key: {value}}
+	this state data stays around (persists) until the object is deleted
+	STATE values will update in the UI if they are changed in the data!
+	State is encapsulated, meaning that unless you pass something out, nothing outside of your component can access the state values.
+	you can also access the this.state parameter in render, but still outside of return and set a variable to equal it. The area outside of return does not need to be escaped with {}
+
+Set state with this.setState
+	this.setState({
+		username: 'Lewis'
+	});
+
+Bind 'this' to a class method
+	this.classMethod = this.classMethod.bind(this)
+	when I type this ^, pretend I typed this ^
+
+Use state To toggle an element
+	inside render() you can use an if statement on state values to change things
+
+Create a controlled input
+	things like form elements have their own states while the user is typing. You can move this mutable state into the React component's state.
+
+Create a controlled form
+	teact can control input and textArea. it can also do other form elements includint the plaing old form element.
+	with onChange = {this.handleChangeFunctions} and the right functions you can make things happen!
+	
