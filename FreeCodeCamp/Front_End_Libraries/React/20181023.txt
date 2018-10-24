@@ -1,0 +1,89 @@
+Pass a state to child components
+	child components of a stateful component can be stateless if the parent component passes the needed variables in as props.
+	This saves complexity by staying stateless.
+React paradigms
+	unidirectional flow: state flows from parent to child
+	complex stateful apps can be broken down into a few or possibly one stateful component (and the rest are stateless)
+	separate the state logic from the UI logic. (?)
+Pass a callback as props
+	you don't have to only pass single variables, you can also pass functions.
+Use the lifecycle method componentWillMount()
+	other lifecycle methods
+	componentWillMount -> right before mount
+	componentDidMount -> after mount
+	componentWillReceiveProps -> as props are passed in, before they actually are received
+	shouldComponentUpdate -> returns boolean, which either re-renders or not
+	componentWillUpdate -> before update
+	componentDidUpdate -> after update
+	componentWillUnmount -> before unmount
+	these are similar to render() meaning they are written at the same depth
+	they are then called whenever the appropriate event occurs
+ComponentDidMount
+	this is used as best-practice for api calls
+	any calls to setState here will cause a re-rendering of the component
+SetTimeout(functionName, timeoutInMs)
+Event listeners
+	componentDidMount is the best place for adding event listeners
+	componentWillUnmount is where you should remove event listeners
+	React has a great synthetic event handler that abstracts browser differences
+	so you can write it once and have React handle the rest.
+	BUT React's synthetic handler doesn't work on document or window objects so
+	for those you have to do it manually.
+		document.addEventHandler('eventName', functionName)
+		document.removeEventHandler('eventName', functionName)
+ComponentWillReceiveProps
+	called whenever a component is about to receive a prop.
+	this method receives the new peops as an argument. they are usually called nextProps
+	you can compare nextProps with this.props to see what is about to change.
+	idk why you would want to, but you can call setState and it will run before 
+	the props are passed in to the object.
+ComponentDidUpdate
+	called after the component is re-rendered.
+shouldComponentUpdate
+	this exists because the default is to rerender whenever props are passed in
+	receives nextProps, nextState as params.
+	returns a boolean indicating if it is going to update or not.
+MOUNTING happens generally once per object
+re-rendering can happen many times
+
+INLINE STYLES
+	they called this-style-of-writing "kebab-case" HA!
+	you can style from a stylesheet by attaching a className to your element
+	inline-style is a different way where you pass an object to the style tag
+	ALSO you need to convert some tags with hyphens to camelCase
+	<div style={{color: "yellow", fontSize:16}}Mellow Yellow </div>
+ADD inline styles in React
+	all lengths / sizes are assumed to be px otherwise wrap in "" "10em"
+use advanced JS in react render method
+	this is what I found earlier where you don't need to escape js outside of the return() block
+Render with an if/else statement
+	you can have two render functions, one in an if block, the other in the else block.
+use && for a more concise conditional
+	{condition && <p>CODE</p>}
+	if this true - return this
+	{this.state.display && <div>Displayed</div>}
+use a ternary expression for conditional rendering
+	this is good, but can get complex quick if you start nesting them.
+	{ifThisIsTrue ? doThis : elseDoThis}
+	{ifThisIsTrue ? doThis : {ifThisOtherThingIsTrue ? doThis : elseDoThis}}
+Render conditionally from props
+	pass in a boolean prop to a child component
+	use a ternary/if/&& to return different code based on this.props.xxx
+change inline css conditionally based on component state
+	it is more clear to style based on component condition
+	it is unidirectional. UI follows component state
+	keeping track of brackets and escape chars in if statements vs ternaries can be confusing. I just had to define a var in one spot so I could break up the setting of it into a ternary.
+use array.map to dynamically render Elements
+	using map helps us deal with an unknown number of elements
+	map is powerful. this maps the es6 function to every element in toDoList
+	const items = this.state.toDoList((item, i) => (<li>item{</li>}))
+give sibling items unique key attributes
+	the simplest thing to do is give them their index to use as a key
+	const items = this.state.toDoList((item, i) => (<li key={i}>item{</li>}))
+
+use array.filter to sort through an array
+	let onlineUsers = users.filter(user => user.online)
+render React on the server with renderToString
+	this seems like a cool bit of code. you can pre render on the server, then pass it that for the first load, and then react can still see and understand that the components will need to be updated and modified. This saves initial load time and size.
+	It also helps because it gives headless search engine crawlers some content to index, vs them refusing to use your client-side js.
+	
