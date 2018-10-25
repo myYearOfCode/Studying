@@ -1,13 +1,13 @@
-# Studying
+# Studying resources.
 
-up next
+## On-Deck:
 
 [React for beginners](https://reactforbeginners.com/)
 
 Udemy - Git a web Developer Job
 
 
-Already Started / Finished
+## Already Started / Finished:
 
 [Wes Bos Mastering Sublime Text](https://sublimetextbook.com/)
 
@@ -25,7 +25,7 @@ Already Started / Finished
 
     started: 2018.09.25 finished:On pause while I focus on JS 2018.10.01
 
-Udacity - [How to use git and github](https://classroom.udacity.com/courses/ud775/)
+[Udacity - How to use git and github](https://classroom.udacity.com/courses/ud775/)
 
     started: 2018.09.09 finished:2018.10.05
 
