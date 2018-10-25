@@ -5,3 +5,72 @@ auto file name is a package he uses to fill in file names from the proj dir
 command-option-[ folds selected code
 command k, command 3 will fold all elements 3 levels deep
 snippets are awesome! download some good language specific sets. prefix them with '.'
+
+Finding selecting and replacing
+	there is an option for "in selection" that I have missed
+	command d allows you to select multiple (multi cursor)
+	he says that you can unselect a selection with cmd-k, but it doesn't work for me.
+EMMET html css helper
+	emmet uses css selectors to create tags.
+	docs.emmet.io/cheat-sheet/ alllll of the emmet short cuts
+	you don't need to save the file for emmet to work, but you do need to set syntax.
+	p -> <p></p>
+	p.special -> <p class="special"></p>
+	 . -> class
+	 # -> id
+	 pass in tags in brackets
+	 img[src="dog.jpg"] -> <img src="dog.jpg">
+
+	lorem20 will give you 20 words of lorem ipsum.
+	{} is the way of including default text in a tag.
+	! -> boilerplate html ***
+	> works to nest and element
+	+ sibling of last element
+
+Making multiple items
+	ul>li.item$*5 -> make 5 li items in a ul tag. Name them item1-item5
+	multiple $$$ -> add padding.
+Emmet tag wrapping
+	if you already have content and want to wrap it with something, select it and hit control-w. This brings up the wrap abbreviation box. $ is allowed here as well. 
+Emmet css
+	emmet uses fuzzy logic to find the difference between what you are typing and what you mean.
+	fs -> font style
+	fz -> font size
+	adding values
+	p100 -> padding: 100px
+	p100p -> padding: 100%
+	padding in css is Top Right Bottom Left or TRouBLe
+	to get vendor prefixes simply add a - before the command.
+Value bumping 
+	put cursor in number
+	option up down to change by .1
+	control to change by 1 BUT this is the default spaces shortcut.
+	option command to change by 10
+	this also works in js!
+Filters
+	you can pipe something to an emmet command in order to add something like flags to it. 
+	|c will add closing comments after each tag
+	|html will output the command as if you were in the html syntax
+	|s puts the whole command on one line
+	|e escapes it
+Line bubbling and swapping
+	commond control up down will move current line up or down, no selection needed
+	select multiples to move multiples
+	this works with multi-cursor as well.
+	he combined lists by multi selecting one list, then hitting return to add a line between each element, and then bubbling the list up into the first list. voila, now they are interspersed.
+Panes and groups
+	this is probably useful, but not as useful if you only have a small laptop screen. command alt 2 will split the window into two panes.
+Origami
+	this is a package that gives you a lot of options for making and saving window pane layouts. Perhaps the best feature is the ability to open the same file (clone) in two different panes to enable readign it in two places.
+	* the orange dot on the tab that indicates an unsaved change is called the 
+	'dirty state'
+	you can zoom into one pane if you want full screen but don't want to change your pane setup. then you can zoom back out.
+Multi cursor mode
+	the cursor is also called the caret. that is weird
+	middle click and drag to select multiple lines (ie make multiple cursors)
+	control shift up down to select from keyboard.
+jshint
+	this is a cool package that shows you some linting in-line, and is less annoying than jsLint. It requires jshint to be installed with npm.
+	to set prefs make a file named .jshintrc in root. If you duplicate this file into your project folder you can make a per-project tailored linting pref.
+	in the jshint prefs in sublime you can turn on lint on save or edit, your choice.
+	I like this a lot better than the jsLint plugin. 
