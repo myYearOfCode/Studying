@@ -1,13 +1,13 @@
-# Studying
+# Studying resources.
 
-up next
+## On-Deck:
 
 [React for beginners](https://reactforbeginners.com/)
 
 Udemy - Git a web Developer Job
 
 
-Already Started / Finished
+## Already Started / Finished:
 
 [Wes Bos Mastering Sublime Text](https://sublimetextbook.com/)
 
