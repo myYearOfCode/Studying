@@ -1,0 +1,7 @@
+command-p brings up the file browser, showing you things in the project directory
+command-shift-p is the mega window with alllll of sublime's tricks in it.
+
+auto file name is a package he uses to fill in file names from the proj dir
+command-option-[ folds selected code
+command k, command 3 will fold all elements 3 levels deep
+snippets are awesome! download some good language specific sets. prefix them with '.'

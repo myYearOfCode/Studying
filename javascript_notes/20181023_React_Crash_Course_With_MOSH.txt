@@ -1,0 +1,115 @@
+mosh react 2018 crash course 2h 25m
+https://www.youtube.com/watch?time_continue=69&v=Ke90Tje7VS0
+
+fb made react in 2011 as a way to have components react when their data has changed. 
+the concept is that you make many small components, each of which are a small
+piece of the UI
+React has a virtual DOM that is a lightweight version of the real dom. It uses
+the virtual dom to compare for changes and to then push any diffs up to the real
+DOM.
+Angular is a framework (like django)
+React is a library (closer to flask): you need other things in order to run it
+npm i -g React
+the i is short for install 
+-g is short for global
+
+Babel 'transpiles' jsx to js
+
+hot module loading means that the page refreshes in the browser every time the
+js file is saved with changes.
+'Bootstrap' gives our app a modern look and feel
+put components in a 'components' folder. they should have .jsx extensions.
+import React {Component} from 'react'
+	this ^^ wasn't visible on previous tutorials. it imports Component
+export default componentName; <- this allows one component to be the default.
+there seems to be a way to import non-default components. what is it?
+<React.fragment></React.fragment> is a way to wrap components and html in something
+but not have to add another div
+
+Bootstrap has its own default classes.
+Bootstrap helps you add classes to something easily instead of writing css.
+Ideally only styling with classes is more maintainable and performant. Manually
+adding style tags should be saved for the last resort.
+
+try to make methods to keep the render block as clean as possible.
+each child in an array or iterator should have a unique key to help React find it
+you can use the index child name (provided it is unique) or '.id' if it is an
+object with an id.
+
+onClick() is added to a button in the <button> and you can pass in a method to run
+
+building a constructor to bind methods to object 'this'
+constructor is a special method in a component
+it can contain super() (and should usually)
+it is a good spot to put method binds
+OR arrow methods do not need to be bound!!
+	old way -> handleIncrement(){...}
+	new way -> handleIncrement = () => {...}
+Arrow functions are great for event handlers bv they are short and you can pass 
+arguments in.
+Using the IDE's built-in refactor tool is a great time-saver and should be done.
+Sometimes you want to pass content between and opening tag and a closing tag of 
+a component. The way to do that is to pass it as an object (by convention called 
+'children') to the child in props and then render it in the child with 
+{this.props.children}
+
+DEBUGGING REACT APPS
+chrome plugin - React Developer Tools 
+the plugin makes a new dev tab that helps you explore the active state of React.
+if you select an element it will set it up as variable $r. you can use that in 
+the console to explore it.
+there is something similar in the elements tab, but it is called $0
+you can do things like $0.click() to click elements.
+
+PROPS VS STATE
+props are passed in, state is encapsulated. it is contained within and not accessible
+from outside the object.
+props are also read-only inside the object.
+
+Raising and handling events
+	my mental model feels backwards on this. 
+	you declare a method in the parent
+	you pass the method to the child in props (event raising)
+		onDelete = {this.handleDelete}
+	you set an event to run that method (event bubbling)
+		onClick = {onDelete} (or should that be props.onDelete?)
+	I don't know how it actually runs in the parent, but I might learn some day.
+
+if key:val are the same (i.e. if you are updating the value key in state with the 
+'value' variable) you can simplify {value: value} to {value}
+
+"SINGLE SOURCE OF TRUTH"
+you need to have the children point to the parent props. Ideally the children are 
+stateless and the only state is kept in the top parent component. This way you
+can have disparate elements pull from the same data source, as opposed to having to 
+somehow connect components to share data the wrong way. The example used was a 
+shopping cart. Each cart item knows how many of itself are there, but the banner 
+is a different component so it does not. if the shopping cart was contained in the 
+mutual parent of banner and the items it could pass the # of cart elements to them
+both in props.
+
+As an app gets bigger or more complex you will have to move state up towards the 
+top in order to keep non-related components able to talk with each other.
+
+Event bubbling -> running a passed-in method in a child component so that it can 
+be executed in a higher level stateful component. could you do this more than one 
+level apart?
+
+Stateless Functional Component vss Stateless Components
+	it seems like a stylistic choice mostly. the functional method needs to have 
+	props passed in using parens and can't use 'this'. I'm not sure why people 
+	do this, but it does need to be understood.
+
+Destructuring Arguments
+	in order to get rid of props.xx you can use this.
+	const {onReset, onDelete} = this.props
+	this "brings in" the props variables as variables accessible locally without 
+	the dot notation.
+
+Lifecycle hooks 
+constructor() is the only hook that can use this.state = xx because it runs before 
+the state is set. Props must be passed into the constructor and super() if you 
+are trying to access them
+you can only use lifestyle hooks in class components.
+componentWillUnmount is a great way to remove listeners or timers because if you
+don't remove them it will cause a memory leak.
