@@ -8,6 +8,9 @@ Udemy - Git a web Developer Job
 
 
 ## Already Started / Finished:
+[Modern React with Redux](https://www.udemy.com/react-redux/)
+
+    started: 2018.10.25 finished: 
 
 [Wes Bos Mastering Sublime Text](https://sublimetextbook.com/)
 
