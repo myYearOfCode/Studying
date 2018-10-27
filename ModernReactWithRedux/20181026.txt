@@ -1,0 +1,58 @@
+Modern React With Redux
+
+starting with boilerplate is an easy way to get into react without having to worry about 
+plumbing and setup.
+React.js is a local file. I wonder if you can remotely load it from a url.
+ES5 is considered 'vanilla js'
+
+once you clone the boilerplate locally
+npm install -> install everything from the package.json file
+npm start -> start the dev server
+
+subl . opens the current dir in sublime. great.
+the words component and view are interchangable
+a component is a collection of functions that eventually produce html
+import React from 'react' -> this is needed for JSX->JS transpiling
+import ReactDOM from 'react-dom' -> this is only needed if you are inserting into the DOM
+	App -> class
+	<App /> -> Instance of the class App
+	=> 'Fat arrow' or 'arrow function' or 'es6 function'
+spread components into different files.
+Only one component per file. (what about sub elements?)
+ 
+installing the youtube api
+	npm -i --save youtube-api-search
+	the --save means to save it to your package.json file as a requirement.
+"export default ComponentName" is the way to specify what component is accessible from outside.
+When we import the same file into the parent it looks like
+import ComponentName from './components/component_name'
+
+??What are the benefits of using a functional component vs a stateless class component??
+
+eventHandler is a name for any function that is called on an event. Convention has these starting with "On" or "Handle". all browser events are passed into the event handler as props. Convention has this named 'e' or 'event'
+
+A 'controlled component' has it's value set by state. even if it is setting and getting the state.
+setState triggers a rerender whenever it is called.
+Youtube API results
+"Downwards Data Flow" is a concept in React that states you should have the most parent component be responsible for fetching and maintaining data.
+*I should look for a twitter api similar to this youtube one.*
+
+using map is much preferred to for loops in React. I wonder why.
+If you are importing one element from props or a library you can use {} to import and rename in one step.
+	ie. 
+	Component({video}) 
+		is the same as 
+	Component(props);
+	const video = props.video;
+Creating an iframe with a src tag of a youtube embed link will give you a player window.
+
+Handling undefined inputs.
+	if (!props) {
+		return (
+			<div> LOADING </DIV>
+		)
+	})
+	Above will return loading text until there are props passed into the function it is in. Once there are props, it will be skipped and the function can run as normal.
+
+Often react will try to render the page before all of the data has been loaded. That is something that needs to be considered in code.
+
