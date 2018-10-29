@@ -12,6 +12,10 @@ Udemy - Git a web Developer Job
 
     started: 2018.10.25 finished: 
 
+[JS algorithms and data structures](https://www.udemy.com/js-algorithms-and-data-structures-masterclass)
+
+    started: 2018.09.27 finished:
+    
 [Wes Bos Mastering Sublime Text](https://sublimetextbook.com/)
 
     started: 2018.10.24 finished: 2018:10:26
