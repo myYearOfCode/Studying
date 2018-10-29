@@ -4,7 +4,9 @@
 
 [React for beginners](https://reactforbeginners.com/)
 
-Udemy - Git a web Developer Job
+[Advanced React and Redux: Stephen Grider](https://www.udemy.com/react-redux-tutorial/)
+
+[Udemy - Git a web Developer Job](https://www.udemy.com/git-a-web-developer-job-mastering-the-modern-workflow/)
 
 
 ## Already Started / Finished:
