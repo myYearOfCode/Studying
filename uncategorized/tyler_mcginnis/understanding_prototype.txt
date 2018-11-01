@@ -1,0 +1,67 @@
+
+
+
+https://tylermcginnis.com/beginners-guide-to-javascript-prototype/
+the point of prototype is to not declare separate methods for many many objects. It saves a lot of memory.
+
+//Bad strategy #1
+whatever is the first argument in Object.create() is designated as the parent object.
+	const child = Object.create() // has no parent
+	const child = Object.create(parent) // has a parent 
+
+inside of the function definition for the object type (animal) you can declare a parent with
+	let animal = Object.create(animalMethods)
+//Bad strategy #2
+this is where prototype comes in.
+all a prototype is, is "a property on a function that points to an object"
+
+you set the methods on Animal.prototype within the Animal constructor function
+then you set the prototype with let animal = Object.create(Animal.prototype)
+
+//Good strategy #1
+the 'new' keyword
+using the new keyword in front of a function invocation js will implicitly add 
+	let this = Object.create(Animal.prototype) // add at the top
+	return this // added at the bottom
+
+BUT, the 'new' keyword also changes everything / requires the function to be written with 'this' instead of the instance name.
+so everything in the function needs to use 'this' I think that is why it breaks in weird ways when the new isn't used.
+
+it seems like you could do this manually by not using the object name within the function. simply write it like the 'new' strategy wants, but also add the let this... and return this lines.
+
+//Good strategy #2
+using class -> es6 construct.
+
+class Animal {
+	constructor(name,energy){
+	this.name = name
+	this.energy = energy
+	}
+	eat(amount){
+		console.log(`${this.name} is eating.`)
+		this.energy += amount
+	}
+	sleep(length) {
+		console.log(`${this.name} is sleeping.`)
+		this.energy += length
+	}
+
+	play(length){
+		console.log(`${this.name} is playing.`)
+		this.energy -+ length
+	}
+}
+
+using the class, you need to use 'new'. 
+
+to find the prototype of a specific instance
+const prototype = Object.getPrototypeOf(leo)
+
+for in loops loop over the innumerable (?) properties of the object AND the prototype
+you can use the .hasOwn() property to filter
+
+instanceof is a way to check if one object is an instance of a function
+NOTE that is is improperly camelcased. ugh.
+
+arrow functions do not have their own this keyword, so they cannot be used with the 'new' keyword. the error is "...is not a constructor"
+therefore you cannot use a prototype property with an arrow function. this is one of the few downsides I have seen to using es6 arrow functions.
