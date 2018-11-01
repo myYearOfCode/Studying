@@ -1,0 +1,27 @@
+these notes are nothing like the react ones largely because the bootstrap concept is so much simpler.
+
+Making a responsive design with bootstrap.
+put a "container-fluid" tag on an enclosing div to have it resize to fit the screen.
+you include bootstrap in an html file with
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/..." integrity="stickmd5 sum in here" crossorigin="anonymous">
+you can center text with "text-center"
+all of bootstrap seems to be about adding class names to elements.
+buttons have "btn" styles as well
+making a button a block style will make it as wide as it's enclosing space.
+btn-primary is a dark blue color
+btn-into is a lighter blue
+btn-danger is red, and used for destructive actions.
+bootstrap uses a responsive 12-column(!) grid
+col-md-#
+col indicates this is a placement tag
+md indicates this is used for medium screen sizes
+# is a number indicating how many columns it takes up
+
+you can add multiple col tags for different size screens
+font awesome icons
+you include font awecome with a declaration similar to the bootstrap one.
+i tags or span tags are used to contain icons
+<i class="fa fa-info-cycle"></i>
+the icon name is after the "fa-" is "fa-trash"
+adding icons makes a page look better quickly
+bootstrap wells are darker rounded divs
