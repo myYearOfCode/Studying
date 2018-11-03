@@ -1,0 +1,31 @@
+FCC jQuery 20181101
+running jQuery requires a script tag at the top of your html
+this line only runs js after the page has loaded.
+	$(document).ready(function(){ js code in here });
+they call $ 'bling'!
+to make all buttons bounce
+	$("button").addClass("animated bounce") // this req some animation stuff to be imported previously.
+The $("button") part is the selector
+The rest is telling jQuery what to do with the selection.
+removeClass() does what you expect
+.css() allows you to changs the css of an element.
+.css("color", "red"); //note that the formatting is different than css
+.prop() lets you modigy the properties of an element
+you can disable buttons with 
+	.prop("disabled", true)
+.html() lets you overwrite the content between the opening and closing tags
+.text() lets you overwrite the text but not the inner html. idk how this works.
+.remove() deletes an entire element
+.clone() makes a copy of an element. are they linked in the future, or are they fully independent?
+$("#target").clone().appendTo("#left-wall")
+|----------1--------|----------2----------|
+1 and 2 are each functions. this is called "function chaining"
+
+.parent() targets the parent of the selector passed into it. chain it like a clone
+.children() targets the children. this can have multiple results, while parent is either 1 or 0.
+.target:nth-child(n) is a selector (ie it is in quotes) for the nth child of an element with the class "target"
+	this doesn't work like I expected it to. it doesn't move down a tree finding children of children. it looks at one level and selects every nth sibling at that level
+:odd select odd # elements, NOTE this index starts at 0. don't get it twisted.!
+. = class name
+# = id name
+"" = tag name
