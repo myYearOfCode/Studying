@@ -1,0 +1,43 @@
+khan academy SQL
+
+this is how you make a table
+CREATE TABLE groceries (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER);
+
+INSERT INTO groceries //VALUES(1, "bananas", 4)
+SELECT starts queries
+SELECT * FROM groceries // this selects all groceries
+	ORDER BY name // this sorts by name
+	WHERE quantity > 3 // this filters the array.
+"aggregate functions" can be used to get max, min, sum, or avg (I bet more as well)
+SELECT SUM(quantity) from groceries; // find total # of groceries
+	GROUP BY aisle // turn previous solo count into one where each # is the quantity of groceries in that aisle.
+
+to show aisle numbers in the code above just insert "aisle," before SUM
+she said that queries run right to left. Im having a hard time making sense of that idea.
+
+you can make more complex queries with and/or
+you can pass only some of the column values by also passing in the column names
+INSERT INTO exercise_logs(type,minutes,calories) VALUES("biking",20,300)
+the main reason you would do this is so you don't need to keep track of id numbers. You can add AUTOINCREMENT to the primary key declaration and SQL will figure it out for you whenever it makes a new row.
+equality in SQL is only one =
+"IN" operator - is this element in this list?
+"NOT IN" exists as well.
+IN can check against another table as well! you can put a subquery in the parens.
+"LIKE" operator is an inexact match, so does this string exist somewhere in the search area.
+% is a wildcard in searches
+AS is a way to rename columns. useful for graphing or neatness. otherwise it will be the search pattern
+	sum(calories) AS total_calories
+"HAVING" is a way to finlter (like WHERE) but it looks at the grouped values, not the individual values.
+"WHERE" will only return items that pass the check, not groups that pass the check.
+count(*) counts rows in the query
+CASE statements are similar to a switch statement. it lets you sort elements into buckets based on properties.
+
+SELECT type, heart rate,
+	CASE
+		WHEN heart_rate > 220-30 THEN "above max"
+		...
+		...
+		ELSE "below target"
+	END AS "hr_zone"
+FROM exercise_logs
+GROUP BY hr_zone
