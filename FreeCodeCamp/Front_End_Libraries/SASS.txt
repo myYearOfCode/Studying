@@ -1,0 +1,43 @@
+sass is a css preprocessor. it is written in it's own little language and it ends up outputting css. it can be good because it is more terse to write, it can duplicate rules or nest elements, and it can make for easier variable updates (ie more maintainable code)
+
+vars are defined with $varName = varValue;
+vars are accessed with $varName
+mixins are like functions for css, they are importable from another file and allow for reusing code without repeating code
+every god-damned line in scss needs a semicolon of else it will break silently and you will loudly be frustrated.
+
+@if something==somethingElse {
+	//do something
+}
+
+@for creates a for loop
+
+@for $i from 1 through 12 {
+	.col-#{$i}{width: 100%/12*$i}
+}
+
+through is inclusive, to is exclusive
+loop index is accessed with $i or #{$i} if it needs string conversion.
+
+
+@each is used to iterate over a list.
+it is at this point that I am starting to feel like  this is too much logic to go into the css sheet.
+
+@each $color in blue, red, green { //this uses a list for the colors
+	.#{color}-text{color: $color;} 
+}
+
+$colors: (color1:blue, color2:green, color3:red)
+@each $key, $color in $colors {
+	.#{color}-text{color: $color;} 	
+}
+
+@while apply a style until a condition is met
+	ugh, the interactive gui is terrible for writing while loops. infinite loops everywhere!
+
+split your styles into smaller chunks with partials.
+names for partials files start with _ and end with .scss
+
+how to import a partial.
+@import "mixins" // this imports the file "_mixins.scss"
+
+.extend is like inheritance. it allows you to use the styles from one element, add to them and apply to another element.
