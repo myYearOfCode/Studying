@@ -11,6 +11,12 @@
 [Udemy - Git a web Developer Job](https://www.udemy.com/git-a-web-developer-job-mastering-the-modern-workflow/)
 
 ## Already Started / Finished:
+
+
+[SQL and PosgreSQL for beginners - udemy](https://www.udemy.com/sql-and-postgresql-for-beginners/)
+    
+    started: 2018.11.15 finished:
+
 [FreeCodeCamp Front End Library Certification](https://learn.freecodecamp.org)
     
     started: 2018.10.11 finished:
