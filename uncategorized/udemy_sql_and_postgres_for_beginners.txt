@@ -1,0 +1,461 @@
+SQL for SELECT statements
+
+To SELECT all data from a table: 
+
+SELECT * FROM table_name; 
+
+Example: 
+
+SELECT * FROM products;  
+
+To SELECT specific columns from a table: 
+
+SELECT column_name1, column_name2 FROM table_name; 
+
+Example: 
+
+SELECT first_name, last_name FROM customers; 
+
+SQL for WHERE clause:
+
+SELECT column_name1, column_name2 FROM table_name
+WHERE column_name1 = 'Value';
+Example: 
+
+SELECT id, name, season FROM products
+WHERE in_stock = 'True';
+
+SQL for multiple WHERE clauses in one SELECT statement: 
+
+SELECT column_name1, column_name2 FROM table_name 
+WHERE column_name1 = 'Value'
+AND column_name2 = 'Value';
+Example: 
+
+SELECT id, product_id, quantity FROM orders 
+WHERE product_id = 5
+AND quantity > 1;
+
+SQL for IN and NOT IN statements: 
+
+SELECT * FROM table_name 
+WHERE column_name1 IN ('value1','value2','value3')
+AND column_name2 NOT IN ('value1','value2','value3');
+Example: 
+
+SELECT * FROM customers 
+WHERE first_name IN ('Emily','George','John')
+AND last_name NOT IN ('Edwards','Smith','Simmonds');
+
+SQL for WHERE clause BETWEEN two values: 
+
+SELECT * FROM table_name 
+WHERE column_name1 BETWEEN 'value1' AND 'value2';
+Example: 
+
+SELECT * FROM customers 
+WHERE date_joined BETWEEN '20170101'AND '20170331';
+
+SQL for using a LIKE operator to match any number of characters in a query: 
+
+SELECT * FROM table_name 
+WHERE column_name1 LIKE '%pattern%';
+Example:
+
+SELECT * FROM address
+WHERE postcode LIKE 'BN%';
+SQL for using a LIKE operator to match one character in a query: 
+
+SELECT * FROM table_name 
+WHERE column_name1 LIKE '_pattern_';
+Example:
+
+SELECT * FROM customers
+WHERE last_name LIKE '_mit_';
+
+SQL statement for ordering data in descending data:
+
+SELECT * FROM table_name
+ORDER BY column_name1 DESC;
+Example:
+
+SELECT * FROM orders 
+ORDER BY order_date DESC;
+SQL statement for ordering data in ascending data:
+
+SELECT * FROM table_name
+WHERE column_name1 = 'value'
+ORDER BY column_name2 ASC;
+Example: 
+
+SELECT * FROM customers
+WHERE gender = 'M'
+ORDER BY date_joined ASC;
+
+SQL for limiting the number of rows returned in a select query to the first n rows:
+
+SELECT * FROM table_name
+WHERE column_name1 = 'value'
+LIMIT n;
+Example: 
+
+SELECT * FROM address
+WHERE city = 'Worthing'
+LIMIT 8;
+SQL for limiting the number of results with an offset: 
+
+SELECT * FROM table_name
+WHERE column_name1 = 'value'
+LIMIT n OFFSET m;
+Example:
+
+SELECT * FROM orders 
+WHERE quantity > 1
+LIMIT 5 OFFSET 5;
+
+SQL for only returning distinct values in the results set: 
+
+SELECT DISTINCT column_name1 FROM table_name; 
+
+Example: 
+
+SELECT DISTINCT last_name FROM customers; 
+
+
+SQL for renaming a column in the results set: 
+
+SELECT column_name1 AS alias FROM table_name;  
+
+Example: 
+
+SELECT wholesale_price AS price FROM products; 
+
+SQL for joining two tables with an inner join: 
+
+SELECT t1.column_name1, t1.column_name2, t2.column_name1 FROM table_name1 t1
+INNER JOIN table_name2 t2 ON t1.column_name2 = t2.column_name1;
+Example: 
+
+SELECT c.first_name, c.last_name, a.postcode FROM customers c 
+INNER JOIN address a ON c.address_id = a.id;
+
+SQL for joining two tables with an inner join and a where clause: 
+
+SELECT t1.column_name1, t1.column_name2, t2.column_name1 FROM table_name1 t1 
+INNER JOIN table_name2 t2 ON t1.column_name1 = t2.column_name2 
+WHERE t1.column_name1 = 'value1';
+Example: 
+
+SELECT p.name, o.quantity, o.order_date FROM products p 
+INNER JOIN orders o ON p.id = o.product_id 
+WHERE p.name = 'Shoes';
+
+SQL for joining two tables using a left join:
+
+SELECT t1.column_name, t1.column_name2, t2.column_name1 FROM table_name1 t1
+LEFT JOIN table_name2 t2 ON t1.column_name1 = t2column_name1
+WHERE t1.column_name2 = 'value1';
+Example:
+
+SELECT a.city, a.postcode, c.first_name, c.last_name FROM address a 
+LEFT JOIN customers c ON a.id = c.address_id 
+WHERE c.date_joined BETWEEN '20170101' AND '20173006';
+
+SQL for joining two tables with a right join: 
+
+SELECT t1.column_name, t1.column_name2, t2.column_name1 FROM table_name1 t1
+RIGHT JOIN table_name2 t2 ON t1.column_name1 = t2column_name1
+WHERE t1.column_name2 = 'value1';
+Example:
+
+SELECT a.city, a.postcode, c.first_name, c.last_name FROM address a 
+RIGHT JOIN customers c ON c.address_id = a.id 
+WHERE c.date_joined BETWEEN '20170101' AND ‘20173006';
+
+
+SQL for joining two tables with a full join: 
+
+SELECT t1.column_name, t1.column_name2, t2.column_name1 FROM table_name1 t1
+FULL JOIN table_name2 t2 ON t1.column_name1 = t2column_name1
+WHERE t1.column_name2 = 'value1';
+Example:
+
+SELECT a.city, a.postcode, c.first_name, c.last_name FROM address a 
+FULL JOIN customers c ON a.id = c.address_id 
+WHERE c.date_joined BETWEEN '20170101' AND ‘20173006';
+
+SQL for joining more than two tables together: 
+
+SELECT t1.column_name, t2.column_name2, t3.column_name1 FROM table_name1 t1
+INNER JOIN table_name2 t2 ON t1.column_name1 = t2column_name1
+INNER JOIN table_name3 t3 ON t1.column_name2 = t3.column_name2
+WHERE t1.column_name2 = 'value1'
+AND t3.column_name2 = 'value2';
+Example:
+
+SELECT a.city, a.postcode, c.first_name, c.last_name, o.product_id, o.quantity, o.order_date FROM address a 
+INNER JOIN customers c ON a.id = c.address_id 
+INNER JOIN orders o ON o.customer_id = c.id
+WHERE c.date_joined BETWEEN '20170101' AND ‘20173006'
+AND o.product_id < 4;
+
+
+SQL for joining two tables using the Union and Union All: 
+
+SELECT column_name1, column_name2 FROM table_name1 
+UNION
+SELECT column_name1, column_name2 FROM table_name2;
+SELECT column_name1, column_name2 FROM table_name1 
+UNION ALL
+SELECT column_name1, column_name2 FROM table_name2;
+Example: 
+
+SELECT first_name, last_name FROM customers
+UNION
+SELECT first_name, last_name FROM employees;
+SELECT first_name, last_name FROM customers
+UNION ALL
+SELECT first_name, last_name FROM employees;
+
+SQL for counting the number of rows within a table: 
+
+SELECT COUNT(*) FROM table_name; 
+
+Example: 
+
+SELECT COUNT(*) FROM customers; 
+
+SQL for counting the number of rows using a Where clause: 
+
+SELECT COUNT(column_name) FROM table_name 
+WHERE column_name = 'value';
+Example: 
+
+SELECT COUNT(name) FROM products
+WHERE season LIKE '%Summer%';
+
+
+SQL for returning the minimum value in a column:
+
+SELECT MIN(column_name) FROM table_name; 
+
+Example: 
+
+SELECT MIN(price) FROM orders; 
+
+SQL for returning the maximum value in a column: 
+
+SELECT MAX(column_name) FROM table_name;  
+
+Example: 
+
+SELECT MAX(hours) FROM employees; 
+
+
+SQL for summing a numeric column: 
+
+SELECT SUM(column_name) FROM table_name;  
+
+Example: 
+
+SELECT SUM(quantity) FROM orders
+WHERE product_id IN (1,2,3);
+
+SQL for returning the average value for a column:
+
+SELECT AVG(column_name) FROM table_name;  
+
+Example: 
+
+SELECT AVG(price) FROM orders
+WHERE order_date BETWEEN '20170101' AND '20170131';
+
+
+SQL for grouping data: 
+
+SELECT column_name1, column_name2, AGG(column_name3) FROM table_name
+GROUP BY column_name1, column_name2;
+Example:
+
+SELECT customer_id, product_id, SUM(price) FROM orders
+GROUP BY customer_id, product_id
+ORDER BY customer_id;
+
+
+SQL using a having clause: 
+
+SELECT column_name1, column_name2, AGG(column_name3) FROM table_name
+GROUP BY column_name1, column_name2
+HAVING column_name1 = 'value1';
+Example:
+
+SELECT date_joined, COUNT(id) FROM customers
+GROUP BY date_joined 
+HAVING date_joined BETWEEN '20160101' AND '20161231';
+
+
+SQL for creating tables with constraints: 
+
+CREATE TABLE table_name (  
+    column_name1 data_type constraints,
+    column_name2 data_type constraints,
+    column_name3 data_type constraints
+);
+Example: 
+
+CREATE TABLE producers (
+    id SERIAL PRIMARY KEY,
+     name VARCHAR(30) NOT NULL,
+     age INT NOT NULL,
+     nationality VARCHAR(20)
+);  
+
+
+SQL for creating tables with foreign keys:
+
+CREATE TABLE table_name2 (  
+      column_name1 data_type constraints,
+      column_name2 data_type constraints,
+      column_name3 data_type REFERENCES table_name1(column_name1)
+);
+Example: 
+
+CREATE TABLE movies (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(30) UNIQUE NOT NULL, 
+      producer_id INT REFERENCES producers(id)
+);
+
+SQL for adding columns to a table:
+
+ALTER TABLE table_name 
+ADD column_name data_type;
+Example: 
+
+ALTER TABLE directors 
+ADD nationality VARCHAR(20);
+SQL for adding columns to a table within a constraint: 
+
+ALTER TABLE table_name 
+ADD column_name data_type constraint;
+Example: 
+
+ALTER TABLE directors 
+ADD earnings NUMERIC(6,2) NOT NULL;
+SQL for removing a column from a table:
+
+ALTER TABLE table_name 
+DROP column_name;
+Example: 
+
+ALTER TABLE directors
+DROP earnings;
+
+SQL for adding a foreign keys to a table:
+
+ALTER TABLE table_name1 ADD FOREIGN KEY (column_name1) REFERENCES table_name2(column_name2); 
+
+Example: 
+
+ALTER TABLE movies ADD FOREIGN KEY (lead_actor) REFERENCES actors(id); 
+
+SQL for adding a constraint (except for NOT NULL constraint) to a column in a table: 
+
+ALTER TABLE table_name ADD CONSTRAINT constraint_name CONSTRAINT (column_name); 
+
+Example: 
+
+ALTER NAME actors ADD CONSTRAINT unique_name UNIQUE (name); 
+
+SQL for removing a constraint (except for NOT NULL constraint) to a column in a table:
+
+ALTER TABLE table_name DROP CONSTRAINT constraint_name; 
+
+Example: 
+
+ALTER TABLE actors DROP CONSTRAINT unique_name; 
+
+SQL for adding and removing a NOT NULL constraint:
+
+ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;  
+
+ALTER TABLE table_name ALTER COLUMN column_name DROP NOT NULL; 
+
+Example: 
+
+ALTER TABLE actors ALTER COLUMN nationality SET NOT NULL; 
+
+ALTER TABLE actors ALTER COLUMN nationality DROP NOT NULL; 
+
+SQL for modifying a column's data type:
+
+ALTER TABLE table_name ALTER COLUMN column_name TYPE data_type;  
+
+Example: 
+
+ALTER TABLE actors ALTER COLUMN name TYPE VARCHAR(40);  
+
+
+SQL for removing tables for databases: 
+
+DROP TABLE table_name;  
+
+Example: 
+
+DROP TABLE movies; 
+
+SQL for deleting all rows from a table: 
+
+TRUNCATE TABLE table_name; 
+
+
+SQL for inserting data into a table: 
+
+INSERT INTO table_name (column_name1, column_name2, column_name3)
+VALUES ('value1','value2','value3');
+Example:
+
+INSERT INTO directors (name, date_of_birth, awards, nationality)
+VALUES ('Tim Burton','19580825',15,'American');
+
+
+SQL for updating data in tables: 
+
+UPDATE table_name
+SET column_name1 = 'value1'
+WHERE column_name2 = 'value2';
+Example:
+
+UPDATE directors
+SET awards = 9
+WHERE id = 4;
+SQL for updating multiple columns in a single update statement:
+
+UPDATE table_name 
+SET column_name1 = 'value1', column_name2 = 'value2'
+WHERE column_name3 = 'value3';
+Example:
+
+UPDATE directors 
+SET name = 'Luc Besson', nationality = 'French'
+WHERE name = 'Luke Besson';
+
+SQL for deleting single rows of data in a table:
+
+DELETE FROM table_name 
+WHERE column_name1 = 'value1';
+Example:
+
+DELETE FROM directors
+WHERE nationality = 'British';
+SQL for deleting all rows of data from a table:
+
+DELETE FROM table_name; 
+
+Example:
+
+DELETE FROM directors; 
+
+
+
+
