@@ -1,0 +1,15 @@
+HARVARD NOTETAKING REPORT
+Note-taking tools and tips
+https://hwpi.harvard.edu/hilt/files/hilt/files/notetaking_0.pdf
+
+take generative notes
+	reframe and reword what the instructor is saying. don't take verbatim notes, as you are simply doing a typing test at that point. Try to be as brief as possible, while still encapsulating all of the concept.
+review early and often
+	review the notes after the lecture. find the highlights and note them. this is also a great time to write up some test questions.
+	review again after a few more days, and ideally a few days after that.
+test yourself
+	this is a great way to reinforce the lessons, and also a way to identify the subjects that could use some more study time. moving the subjects that are mastered into the 'reinforce in a few days' category helps to free up review time for more difficult subjects.
+carefully think about how you want to take notes
+	laptops are faster than handwritten notes, but speed isn't everything. the 'slowing down' required with pen and paper is itself a useful thing. laptops can be good for code as they provide copy pastable content, but even that should be discouraged while learning.
+be mindful of misperceptions about learning
+	just because it is easy to understand a concept the first time does not mean that you will remember it.

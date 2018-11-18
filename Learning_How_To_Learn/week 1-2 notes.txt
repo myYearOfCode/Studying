@@ -1,0 +1,117 @@
+learning how to learn
+https://www.coursera.org/learn/learning-how-to-learn/
+*****************************************************
+
+spaced repetition is when you space out the repetition of the info so that you can work on moving the info from short term storage to long term storage. The more repetitions you have, the better. The timing on the repetition matters though. Her illustration was to work on something for three days in a row, then take a day off, study, take another day off, and study again. This m,t,w,f,sun pattern would be a good one to recreate with my studies.
+
+I'd love to make a review of each night's lessons with some questions at the end of each night. Then set up a reminder to try to review each of those questions on a schedule. Maybe this could be the end of the night, but I think ideally it is the beginning.
+
+this seems like a great idea for a web or command line app.
+
+conciously reviewing concepts right before sleep and intentionally trying to dream about them will actually help cement the ideas in your memory.
+
+exercise and an enriching environment both allow the hippocampus to create new neurons. That is the only area of the brain that builds new neurons after birth.
+
+there is a benefit to making any environment creative. it brings in multiple parts of the brain and 'increases your horsepower'
+
+when taking tests, don't focus too long on any one question. your brain will probably keep working on it after you skip it, and you can always come back.
+
+focused and diffuse modes are what we are calling the two learning modes.
+focused is intentional thought / learning. it is for things that are familiar or close to similar things you have done before
+diffused mode is when you are partially focused on a concept. shower thoughts / running / etc. This can be useful to learn something you have never learned before. 
+
+practiced spaced repetition holds your concept in one of your 4 short term memory slots. the repetition part helps burn in the thoughts to your long term memory, and make recall easier.
+
+we talked a lot about the pomodoro technique.
+maybe this would be good for me to do 25m on, 5m of reviewing and writing questions!
+
+sleep helps clean toxins out of the brain.
+
+sometimes you can find perspective by zooming in or out. That can help to give urgency or relevance to a lesson or concept.
+
+CHUNKING
+
+chunking is like storing similar ideas in a folder. you can find the ideas in the future by looking in the folder. seeing one may remind you of another, and they are stored together because they share concepts.
+
+sometimes you make smaller chunks and then combine them
+1. focus your undivided attention on the subject you want to chunk
+2. understand the overview of the concept you are trying to chunk
+	this understanding is like a mesh that helps to provide structure to the future learnings.
+3. practice. testing or doing it is important in order to reinforce the pathways
+
+learning context is important as well in order to see when to apply and why to apply your new concept.
+
+doing a rapid overview of a subject can help establish the structure (context) before you dig into the specifics. this helps your brain to know where to store it and how to establish connections between seemingly disparate pieces.
+
+recalling material after learning it helps you to remember material better than any other process. stop after a page or chapter and then remember all that you can.
+
+I should keep a record of what I am googling, and be sure to write down the answers. this might help the info stick if I slow down a little bit and store the info for a moment longer. I can also refer to the google notes doc as a way of speeding up the search just in case I do forget it a second time.
+
+The value of a library of chunks
+	gradually building the number of chunks in your brain helps with transferring ideas from one field to another.
+	as you build expertise you will be able to build bigger and bigger neural patterns.
+	the diffuse mode can help you connect specific chunks
+
+the law of serendipity
+	lady luck favors the one who tries.
+
+overlearning, choking, Eindtellung and Interleaving.
+	overlearning can be valuable in times of nervousness.be careful with pushing too hard in one setting, because it is at best a waste of time, and at worst taking time away from other things you could be learning.
+
+	Einstellung - when an initial thought distracts you from finding the right solution. It means 'mindset'	in german. This definitely happens to me. 
+
+	interleaving is jumping back and forth between a different concept, problem or technique. Using your brain in two different ways will help it create a stronger bond with the information. If you are solely focused on one subject then you can switch between the 'how' and the 'why' facets of it even add in 'when' to use the technique. This may feel difficult, but it is very important to build flexibility and creativity. It helps allow your mind bridge info that it know in one area and realize that it applies to a second area.
+
+CHUNKING summary
+
+	recall the day of / hour after a lesson will help reinforce concepts even better than reading the notes, as you are getting bonus points every time you remember it, vs just rereading it.
+
+	interleaving is a very powerful thing - switching subjects from time to time in order to let your mind work on something else (possibly allow some diffuse learning) and it might also find some analogies between the two.
+
+	Einstellung happens to me all the time, where I remember the wrong thing initially and then have to work through the steps to get to the right answer. After enough reworking, the lookup should hopefully link to the correct answer.
+
+	recalling ideas is a powerful way to remember them, even better than rereading notes.
+	overlearning can happen quickly and has very diminishing returns. Once your brain is saturated take a walk, switch subjects, or call it a night. overlearning can be useful in areas where you are afraid you may 'choke' like public speaking. It can wear down your fear through practice. 70 hours of repetition go into each ted talk on average.
+
+	having a library of chunks is great because they can act as building blocks in order to understand big concepts.
+
+
+PROCRASTINATION AND MEMORY
+	pomodoro. use it.
+	the lazy persons approach to procrastination.
+
+habit and chunking are representations of an energy saving mode. it is how your mind can save processing power by focusing on the minimal inputs
+
+4 parts of a habit
+	cue - the thing that triggers the habit
+	routine - zombie mode. the routine habitual mode that the brain goes into following the cue
+	reward - the reward for following the routine
+	belief - your belief about sucess or failure
+
+process vs product
+	focus on doing it vs focusing on having it done. 
+	it is kind of like 'one step at a time'.
+	this is why pomodoro works. focus on 25m, then you get a reward.
+process would be working on making a web site. product would be having a working website. The first one is a success as soon as you start working on it, while the second one is a failure until you finish. 
+
+harnessing your zombie habits to help you
+	you want to change your reaction to the cue.
+	come up with a plan for success. "when I start to procrastinate next time I will..."
+	the reward. what would make your continued focus feel more like a success?
+	when your brain starts expecting the reward it will signify the changing habit is sinking in.
+	change your belief. hang out with supportive people and set yourself up for success.
+
+juggling life and learning
+	keep a weekly list of things to learn.
+	writing the list before you go to sleep helps the zombies work on your tasks in the background.
+	making the list in advance declares your intention and prevents "not knowing what to do next"
+	plan your quitting time.
+	try to work on the thing that you like least first. it is all easier from there.
+
+summing up procrastination
+	tacking it is important to avoid procrastination
+	keep a time journal so you can track your successes
+	commit yourself to a routine
+	delay rewards until you finish the task
+	watch for procrastination cues
+	gain trust in the system

@@ -2,7 +2,7 @@
 
 ## On-Deck:
 
-[FreeCodeCamp Front End Library Certification](https://learn.freecodecamp.org)
+
 
 [React for beginners](https://reactforbeginners.com/)
 
@@ -12,9 +12,18 @@
 
 ## Already Started / Finished:
 
+
+[SQL and PosgreSQL for beginners - udemy](https://www.udemy.com/sql-and-postgresql-for-beginners/)
+    
+    started: 2018.11.15 finished:
+
+[FreeCodeCamp Front End Library Certification](https://learn.freecodecamp.org)
+    
+    started: 2018.10.11 finished:
+    
 [Modern React with Redux](https://www.udemy.com/react-redux/)
 
-    started: 2018.10.25 finished:
+    started: 2018.10.25 finished:2018.11.14
 
 [JS algorithms and data structures](https://www.udemy.com/js-algorithms-and-data-structures-masterclass)
 
@@ -42,14 +51,15 @@
 
 ## Big concepts to learn
 
-reactJS
+react
 TDD
-node.js
+postgres
+ruby (more)
 
+node.js
 docker / kubernetes / heroku
 do stanford's database class
 harvard cs50?
-ruby (more)
 rails
 SQL should be looked into.
 Active record
