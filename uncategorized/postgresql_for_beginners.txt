@@ -1,0 +1,119 @@
+postgreSQL for beginners - udemy
+https://www.udemy.com/sql-and-postgresql-for-beginners/
+DBMS - database management system
+RDBMS - relational database management system
+SQL - structured query language
+ pronounced "post gray ess que el"
+
+install postgresql
+  postgreSQL.org -> get interactive version by enterpriseDB
+  pgAdmin4 is the management tool.
+
+set up postgresql
+  use the gui. right click on the database and select "create script"
+  copy/paste from the example script.
+
+creating a table
+  CREATE TABLE products(
+    id SERIAL PRIMARY KEY, --MAKE A TABLE
+    name VARCHAR(20) NOT NULL --MAKE A ROW
+  );
+
+selecting SQL and then hitting f5 or the lightning bolt button will run it.
+
+inserting data
+  INSERT INTO tablename(cust.id, prod.id, quant, price) --defines column names
+  VALUES (74,23,4,40.00); --define row values
+
+selecting data from a table
+  SELECT * FROM tablename; -- select all data
+  SELECT column_one, column_two FROM tablename; --select multiple columns
+
+filtering with WHERE
+  SELECT * FROM tablename; -- select all data
+  WHERE quant > 3;
+  -- or  --
+  WHERE column_name = 'value' -- MUST BE IN SINGLE QUOTES
+
+ONE WEIRD THING:
+  not equal in sql is <>
+  strange, eh?
+
+checking in a list
+  SELECT * FROM tablename; -- select all data
+  WHERE quant IN (1,2,3,4,5,6,9); -- is quantity in that list?
+  -- or --
+  WHERE quant NOT IN (1,2,3,4,5,6,9); -- is qunt not in list?
+
+using between
+  this checks if a number is in a contiguous range between two numbers.
+  it is inclusive.
+
+  WHERE is BETWEEN 3 AND 20;
+
+date format
+  'YYYYMMDD' is the way postgres likes it. ALWAYS SINGLE QUOTES
+
+fuzzy search with like
+  WHERE name LIKE '%oss%' -- returns anything with oss in it at any point.
+  % is 0, or more wildcard chars
+  _ is one wildcard char
+
+SQL comments
+  -- use the double dash
+
+ordering results
+  ORDER BY column_name ASC -- default
+  DESC -- used for descending.
+
+limiting results
+  LIMIT 3;
+  LIMIT 3, OFFSET 3; -- starts at the 4th element, returns 3.
+
+returning distinct elements
+  SELECT DISTINCT column_name FROM table;
+
+making a column name alias.
+  this is useful when looking at the new data.
+  this can also be used to shorten join commands
+  SELECT column_name AS new_name FROM table;
+  !filters must still use the original column_name
+
+select data from multiple columns with JOIN
+  SELECT tablename.column_name, tablename2.column_name FROM tablename
+  INNER JOIN tablename2 ON shared_id.tablename = shared_id.tablename2;
+
+this can be shortened with aliasing
+!aliasing is different in here. Dont use AS. idk why
+  SELECT t.column_name, w.column_name FROM tablename t
+  INNER JOIN tablename2 w ON w.shared_id = t.shared_id;
+
+adding a where to a JOIN
+  SELECT t.column_name, w.column_name FROM tablename t
+  INNER JOIN tablename2 w ON w.shared_id = t.shared_id
+  WHERE t.first_name = 'John';
+
+INNER JOIN is the same as JOIN, but it's nice to be explicit when possible.
+
+LEFT JOIN will add elements from table 2 to ids that are in the left column (table 1),
+but not to unique values in table 2
+
+RIGHT JOIN is the opposite of left join. it is the same as a right join with swapped tables.
+
+FULL JOIN mashes any row it finds into output and combines rows that have overlapping ids.
+
+Joining multiple tables
+  just do a second JOIN after the first.
+  it doesn't have to share a column with the first table, just one of the two
+
+UNION vs UNION all
+  these both add rows to an output table.
+  UNION is distinct.
+
+  SELECT first_name, last_name FROM customers
+  UNION
+  SELECT first_name, last_name FROM employees;
+
+  I guess if you have an employee and a customer who share a name, one of them
+  will not make it into a UNION
+  
