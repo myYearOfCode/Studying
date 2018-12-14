@@ -1,0 +1,44 @@
+https://www.youtube.com/watch?v=P86N9FqNqso
+she moved all of the code into a "heroku_code" folder
+then made 3 files that heroku needs
+  package.json is for backend
+    this looked like any other package.json.
+    I'm not sure if it had anything special.
+  Procfile is for heroku front end
+    web: node server.js
+  server.js is for starting up the server
+    var express = require('express');
+    var app = express();
+
+    //set port
+    var port = process.env.PORT || 8080;
+
+    app.use(express.static(__dirname));
+
+    //routes
+    app.get("/", function(req,res) {
+      res.render("index");
+    })
+
+    app.listen(port, function() {
+      console.log("app running");
+    })
+
+Then make a heroku account online
+then install the heroku cli
+you can test the heroku locally with
+  heroku login (then enter u/p)
+  heroku local web
+ctrl c to exit
+  git init
+  git add .
+  git commit
+  git push
+
+  heroku create -> create an app on your heroku account
+  this command will give you a git repo hosted by heroku to upload to.
+  git push (new git repo) master
+  the cli gives you a url when it finishes.
+
+ideally you stick your static html in a 'public' folder, and change the __dirname
+variable in server.js to be __dirname + "/public"

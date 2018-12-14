@@ -1,0 +1,59 @@
+initially you install gulp globally with
+npm install gulp --global
+on my mac I had to run it as sudo
+then you cd into your project dir and run
+npm install gulp --save-dev
+in order to install it into that project
+now create a gulpfile.js file in the root of the project
+in there you define everything. This is what my test looked like.
+
+var gulp = require('gulp'),
+watch = require('gulp-watch')
+
+//this task is called when you just run 'gulp'
+gulp.task('default', function(){
+  console.log("Hooray, you created a Gulp task.");
+});
+
+//this task is run when you call 'gulp html'
+gulp.task('html', function(){
+  console.log("imagine something useful being done here.");
+})
+
+//this is a watch task that runs continuously after calling "gulp watch"
+gulp.task('watch', function(){
+  watch('./index.html', function(){
+    gulp.start('html');
+  });
+
+  //this task shows wildcards in paths
+  gulp.task('watch', function(){
+    watch('./app/assets/**/*.css', function(){
+      gulp.start('html');
+    });
+});
+
+gulp.src() -> input
+gulp.dest() -> output
+pipe -> how to pass data from one thing to another.
+
+//this is the simplest pipe option. it just copies a file to a new dir
+gulp.task('styles', function(){
+  return gulp.src('./path/to/src.file')
+    .pipe(gulp.dest('./path/to/temp'));
+})
+
+//now changing it to pass it to postCSS in the middle.
+gulp.task('styles', function(){
+  return gulp.src('./path/to/src.file')
+    .pipe(postcss[cssvars, autoprefixer]) //these need to be installed already!
+    .pipe(gulp.dest('./path/to/temp'));
+})
+
+Installing postCSS
+npm install postcss --save-dev
+THEN you need to install whatever features you actually want, like
+autoprefixer, postcss-nested or postcss-simple-vars (use --save-dev on them as well.)
+Then you need to import the postcss modules into your gulpfile
+  cssvars = require('postcss-simple-vars')
+  autoprefixer = require('autoprefixer')
