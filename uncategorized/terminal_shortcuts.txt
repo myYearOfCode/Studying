@@ -1,0 +1,8 @@
+move cursor to beginning/end of command -> control a/e
+move cursor one word at a time -> esc b/f
+clear current line -> control u
+clear screen => control L
+delete to end of line -> control k
+
+some tips from here
+http://www.geekmind.net/2011/01/shortcuts-to-improve-your-bash-zsh.html
