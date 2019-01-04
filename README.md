@@ -16,6 +16,10 @@
 
     Started: 2018.12.21 Finished:
 
+[Learning How To Learn](https://www.coursera.org/learn/learning-how-to-learn/)
+
+    Started: 2018.11.11 Finished: 2018.11.13
+
 [SQL and PosgreSQL for beginners - udemy](https://www.udemy.com/sql-and-postgresql-for-beginners/)
     
     started: 2018.11.15 finished:
