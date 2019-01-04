@@ -12,6 +12,9 @@
 
 ## Already Started / Finished:
 
+[CS50](https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/course)
+
+    Started: 2018.12.21 Finished:
 
 [SQL and PosgreSQL for beginners - udemy](https://www.udemy.com/sql-and-postgresql-for-beginners/)
     
